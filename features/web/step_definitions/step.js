@@ -2,7 +2,7 @@ const {faker} = require('@faker-js/faker');
 const { Given, When, Then, After} = require('@cucumber/cucumber');
 const DOMCommonsElements = require('./page_object/page_object_common');
 const DOMElementsPost  = require('./page_object/page_object_post');
-const urls = require('./url/page_url');
+const DOMElementsTags = require('./page_object/page_object_tags');
 const chai = require('chai');
 
 let data = {}
@@ -156,6 +156,43 @@ When(/^I select page option in sidebar (.*)$/, async function (sidebar_option) {
 When(/^I want press new item button$/, async function () {
     let element = await this.driver.$(DOMCommonsElements.options.new_item_btn);
     return element.click();
+});
+When(/^I want fill fields$/, async function () {
+    let tag_input_name = await this.driver.$(DOMElementsTags.input_name);
+    data.tag_name = faker.random.words(3);
+    await tag_input_name.setValue(data.tag_name);
+    let tag_input_slug = await this.driver.$(DOMElementsTags.input_slug);
+    data.tag_slug = faker.internet.domainSuffix();
+    await tag_input_slug.setValue(data.tag_slug);
+    let tag_input_description = await this.driver.$(DOMElementsTags.input_description);
+    data.tag_description = faker.random.words(10);
+    await tag_input_description.setValue(data.tag_description);
+});
+When(/^I want to press save button$/, async function () {
+    let tag_save_button = await this.driver.$(DOMElementsTags.button_save);
+    await tag_save_button.click();
+});
+Then(/^I want validate tags in list$/, async  function () {
+    let posts = await this.driver.$$(DOMElementsTags.slug_in_list_tags);
+    let founded  = await equals_items_founded(posts, data.tag_name);
+    chai.assert.isTrue(founded.length > 0);
+});
+When(/^I want choose random item tags$/, async function () {
+    let all_items = await this.driver.$$(DOMElementsTags.tags);
+    let position_item_to_select = Math.floor(Math.random() * all_items.length) + 1;
+    let tag = await this.driver.$(DOMElementsTags.nth_tag.replace('####','' + position_item_to_select));
+    return tag.click();
+});
+When(/^I want to press delete button$/, async function () {
+    let delete_button = await this.driver.$(DOMElementsTags.button_delete);
+    let slug =  await this.driver.$(DOMElementsTags.input_slug);
+    data.tag_slug = await slug.getValue();
+    return delete_button.click();
+});
+Then(/^I validate that tag not exist in list$/, async function () {
+    let all_slugs = await this.driver.$$(DOMElementsTags.slug_in_list_tags);
+    let founded = equals_items_founded(all_slugs, data.tag_slug);
+    chai.assert.equal((await founded).length, 0);
 });
 const equals_items_founded = async (posts, strToCompare) => {
     let data = posts;

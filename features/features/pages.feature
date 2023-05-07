@@ -4,7 +4,7 @@ Feature: Pages
   Scenario: Create new page
     Given I navigate to page "http://localhost:2368/ghost/#/signin"
     When I enter email "<USERNAME>"
-    And I wait for 3 seconds
+    And I wait for 2 seconds
     And I enter password "<PASSWORD>"
     And I wait for 2 seconds
     And I click signIn
