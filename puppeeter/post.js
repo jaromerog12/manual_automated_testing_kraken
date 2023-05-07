@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const { faker } = require('@faker-js/faker');
+const LoginPage = require('./pages/login/LoginPages');
 
 const fs = require('fs');
 const folderName = './case_2/';
@@ -11,13 +12,15 @@ console.log(content);
 
 (async()=>{
     
-    fs.mkdirSync(folderName, { recursive: true })
+    fs.mkdirSync(folderName, { recursive: true });
     const browser = await puppeteer.launch();
-
     const page = await browser.newPage();
     await page.goto('http://localhost:2368/ghost/#/signin');
-    await page.type('input[name="identification"]', 'leonardo@gmail.com');
-    await page.type('input[name="password"]', 'Febrero.2023');
+    const login = new LoginPage(page, 'asd');
+    
+    
+    await login.ingresar_credenciales('leonardo@gmail.com', 'Febrero.2023')
+
     await page.screenshot({path: folderName + '/1.png'});
     await page.click('button[id="ember5"]');
     await new Promise(r => setTimeout(r, 5000));

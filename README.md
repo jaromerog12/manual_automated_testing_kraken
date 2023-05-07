@@ -18,8 +18,8 @@
 2. En la terminal de comandos de su preferencia y dirijase donde se encuentra el repositositorio, luego ubiquese en la carpeta **puppeteer**.
 3. Realice la instalacion de los paquetes del proyecto utilizando el comando 
 `npm install ` en la terminal, se recomienda correr este comando con permisos de Administrador.
-4. Al correr ghost crear una cuenta con las credenciales user = 'ca.zuleta@uniandes.edu.co' y password = 'Iloveyou god'
-5. Para ejecutar los test de puppeteer se necesita esta en la carpeta puppeteer/crear-post y ejecutar por consola node index.js con eso correran los test con la UI porque tiene desactivada la opcion de headless.
+4. Durante la instalacion de ghost, se le solicito crear un usuario y contraseña, para la administracion del contenido. Estos datos deben agregarse en el archivo `config.json` que se encuentra en la raiz de la carpeta **puppete**.
+5. Para ejecutar los test de puppeteer se necesita esta en la carpeta **puppeteer** y ejecutar por consola node index.js con eso correran los test.
 
 #### Instalacion de Kraken
 
