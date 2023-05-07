@@ -32,17 +32,19 @@
 
 #### Funcionalidades y Escenarios de pruebás
 
-|  Funcionalidad | Nombre escenarios de pruebas  |  Descripcion escenarios de pruebas  |
-| ------------ | ------------ |------------ |
-|  General |  Actualizar titulo y descripción | Se debe autenticar en la aplicacion e  ingresar en la pagina de configuracion, despues  se debe actualizar el titulo y la descripción.|
-|  General |  Actualizar metadatos | Se debe autenticar en la aplicacion e  ingresar en la pagina de configuracion, despues  se debe actualizar algun metadato disponible.|
+|  Funcionalidad | Nombre escenarios de pruebas    | Descripcion escenarios de pruebas                                                                                                      |
+| ------------ |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+|  General | Actualizar titulo y descripción | Se debe autenticar en la aplicacion e  ingresar en la pagina de configuracion, despues  se debe actualizar el titulo y la descripción. |
+|  General | Actualizar metadatos            | Se debe autenticar en la aplicacion e  ingresar en la pagina de configuracion, despues  se debe actualizar algun metadato disponible.  |
+|  General | Actualizar Facebook             | Se debe autenticar en la aplicacion e  ingresar en la pagina de configuracion, despues  se debe actualizar facebook.                   |
+|  General | Actualizar twitter              | Se debe autenticar en la aplicacion e  ingresar en la pagina de configuracion, despues  se debe actualizar twitter.                    |
 
-|  Funcionalidad | Nombre escenarios de pruebas  |  Descripcion escenarios de pruebas  |
-| ------------ | ------------ |------------ |
-|  Diseño |  Crear nuevo elemento de menu| Se debe autenticar en la aplicacion e  ingresar en la pagina de diseño, despues  se debe agregar un nuevo elemento en el menu.|
-|  Diseño |  Crear nuevo elemento de submenu | Se debe autenticar en la aplicacion e  ingresar en la pagina de diseño, despues  se debe agregar un nuevo elemento en el submenu|
-|  Diseño |  Eliminar elemento de menu | Se debe autenticar en la aplicacion e  ingresar en la pagina de diseño, despues  se debe eliminar un elemento en el menu.|
-|  Diseño |  Eliminar elemento de submenu | Se debe autenticar en la aplicacion e  ingresar en la pagina de diseño, despues  se debe eliminar un elemento en el submenu|
+|  Funcionalidad | Nombre escenarios de pruebas    | Descripcion escenarios de pruebas                                                                                           |
+| ------------ | ------------                    | ------------                                                                                                                |
+|  Diseño | Crear nuevo elemento de menu    | Se debe autenticar en la aplicacion e  ingresar en la pagina de diseño, despues  se debe agregar un nuevo elemento en el menu. |
+|  Diseño | Crear nuevo elemento de submenu | Se debe autenticar en la aplicacion e  ingresar en la pagina de diseño, despues  se debe agregar un nuevo elemento en el submenu |
+|  Diseño | Eliminar elemento de menu       | Se debe autenticar en la aplicacion e  ingresar en la pagina de diseño, despues  se debe eliminar un elemento en el menu.   |
+|  Diseño | Eliminar elemento de submenu    | Se debe autenticar en la aplicacion e  ingresar en la pagina de diseño, despues  se debe eliminar un elemento en el submenu |
 
 |  Funcionalidad | Nombre escenarios de pruebas  |  Descripcion escenarios de pruebas  |
 | ------------ | ------------ |------------ |

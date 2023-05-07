@@ -133,3 +133,5 @@ dist
 
 #kraken
 ./reports/.*
+/kraken/.kraken/
+/kraken/reports/
