@@ -1,4 +1,6 @@
 {
   "USERNAME": "ja.romerog12@uniandes.edu.co",
-  "PASSWORD": "Gh0st$2023"
+  "PASSWORD": "Gh0st$2023",
+  "url_page": "http://localhost:2368/ghost/#/pages",
+  "position_pages_sidebar": 3
 }
