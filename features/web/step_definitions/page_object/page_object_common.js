@@ -27,7 +27,7 @@ const DOMCommonsElements = {
     },
     options: {
         item_title: '.gh-canvas > section > ol > li > a:nth-child(2) > h3',
-        item_published_status: '.gh-nav-body > div > ul:nth-child(2) > li:nth-child(2) > div > div > ul > li:nth-child(3)',
+        item_status: '.gh-nav-body > div > ul:nth-child(2) > li:nth-child(2) > div > div > ul > li:nth-child(3)',
         back_list_items: 'section > header > div > div:nth-child(1) > a',
         list_items_status: 'body > div.gh-app.ember-view > div > main > section > section > ol > li:nth-child(2) > a.ember-view.permalink.gh-list-data.gh-post-list-status > div > span',
         list_items: '.gh-canvas > section > ol > .gh-list-row.gh-posts-list-item > a:nth-child(1)',
@@ -35,6 +35,11 @@ const DOMCommonsElements = {
         item_excerpt_input: 'div.settings-menu-pane-in.settings-menu.settings-menu-pane > div.settings-menu-content > form > div:nth-child(4) > textarea',
         close_item_settings: 'div.settings-menu-pane-in.settings-menu.settings-menu-pane > div.settings-menu-header > button',
         item_delete_btn: 'div.settings-menu-pane-in.settings-menu.settings-menu-pane > div.settings-menu-content > form > button',
+        new_item_btn: 'div.gh-app.ember-view > div > main > section > header > section > a',
+        items: '.gh-canvas > section > ol > .gh-list-row.gh-posts-list-item',
+        filters: 'section > header > section > div > div:nth-child(##filters##) > div:nth-child(1)',
+        filter_option: 'body > div > div > ul > li:nth-child(####)',
+        filter_all_options: 'body > div > div > ul > li',
     }
 };
 module.exports = DOMCommonsElements;

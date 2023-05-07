@@ -11,7 +11,7 @@ Feature: Pages
     And I wait for 2 seconds
     When I select page option in sidebar pages
     And I wait for 2 seconds
-    And I want press new page button
+    And I want press new item button
     And I wait for 2 seconds
     And I write title
     And I wait for 2 seconds
@@ -29,7 +29,7 @@ Feature: Pages
     And I wait for 2 seconds
     And I should show item in list
     And I wait for 2 seconds
-    And I want validate new item with published status
+    And I want validate new item with PUBLISHED status
     And I wait for 2 seconds
 
   @user2 @web
@@ -60,26 +60,24 @@ Feature: Pages
     Then should excerpt has been modified
     And I wait for 2 seconds
 
-
-
   @user3 @web
   Scenario: Delete page
     Given I navigate to page "http://localhost:2368/ghost/#/signin"
     When I enter email "<USERNAME>"
-    And I wait for 3 seconds
+    And I wait for 2 seconds
     And I enter password "<PASSWORD>"
     And I wait for 2 seconds
     And I click signIn
     And I wait for 2 seconds
-    When I select page option in sidebar pages
+    And I select page option in sidebar pages
     And I wait for 2 seconds
     And I want choose random item
     And I wait for 2 seconds
     And I want open item settings
     And I wait for 2 seconds
-    And I want press delete posts button
+    And I want press delete item button
     And I wait for 2 seconds
-    And I want press confirm delete posts button
+    And I want press confirm delete item button
     And I wait for 2 seconds
     Then I want validate lists items, after delete
     And I wait for 2 seconds

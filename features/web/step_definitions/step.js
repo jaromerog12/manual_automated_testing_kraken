@@ -57,57 +57,54 @@ Then(`I want validate {kraken-string} url`, async function (feature) {
 });
 Then(/^I should show item in list$/, async  function () {
     let posts = await this.driver.$$(DOMCommonsElements.options.item_title);
-    let founded  = await items_founded(posts, data.title_post);
+    let founded  = await equals_items_founded(posts, data.title_post);
     chai.assert.isTrue(founded.length > 0);
 });
-Then(/^I want validate new item with published status$/, async function () {
-    let items = await this.driver.$$(DOMCommonsElements.options.item_title);
-    let founded  = await items_founded(items, data.title_post);
-    chai.assert.isTrue(founded.length > 0);
-});
-
-Then(/^I want navigate to draft status post$/, async function () {
-    let element = await this.driver.$(DOMElementsPost.draft_status_posts);
-    await element.click();
-    chai.assert(this.driver.getUrl, urls.posts.published);
+Then(/^I want validate new item with (.*) status$/, async function (status) {
+    let items = await this.driver.$$(DOMCommonsElements.options.item_status);
+    let founded  = await contains_items_founded(items, status);
+    chai.assert.isTrue(founded.length === items.length);
 });
 Then(/^I want validate new post with draft status$/, async function () {
     let posts = await this.driver.$$(DOMCommonsElements.options.item_title);
-    let founded  = await items_founded(posts, data.title_post);
+    let founded  = await equals_items_founded(posts, data.title_post);
     chai.assert.isTrue(founded.length > 0);
 });
+/*
 When(/^I open all posts$/, async function () {
     let element = await this.driver.$(DOMElementsPost.open_all_posts);
     return element.click();
 });
+
+ */
 When(/^I open (.*) filter$/, async function (type_filter) {
     let position_filter = DOMCommonsElements.filter_posts.order_filters[type_filter];
-    let element = await this.driver.$(DOMElementsPost.filters.replace('##filters##', position_filter));
+    let element = await this.driver.$(DOMCommonsElements.options.filters.replace('##filters##', position_filter));
     return element.click();
 });
 When(/^I select filter (.*) option$/, async function (filter_status) {
     let position_status_in_menu = DOMCommonsElements.filter_posts.order_menu_status[filter_status];
-    let element = await this.driver.$(DOMElementsPost.filter_option.replace('####', position_status_in_menu));
+    let element = await this.driver.$(DOMCommonsElements.options.filter_option.replace('####', position_status_in_menu));
     return element.click();
 });
 When(/^I want filter by (.*) items$/, async function (status) {
     let all_posts = await this.driver.$$(DOMCommonsElements.options.list_items_status);
-    data.status_filter  = await items_founded(all_posts, status);
+    data.status_filter  = await equals_items_founded(all_posts, status);
 });
 Then(/^I want validate that filter only contain (.*) status$/, function (status) {
     let data_status = data.status_filter.filter((s) => status.trim().toLowerCase() !== s.trim().toLowerCase())
     chai.assert.equal(data_status.length, 0);
 });
 When(/^I want choose filter by random author$/, async function () {
-    let all_posts = await this.driver.$$(DOMElementsPost.filter_all_options);
+    let all_posts = await this.driver.$$(DOMCommonsElements.options.filter_all_options);
     let position_author_in_menu = Math.floor(Math.random() * all_posts.length) + 1;
-    let element = await this.driver.$(DOMElementsPost.filter_option.replace('####', '' + position_author_in_menu));
+    let element = await this.driver.$(DOMCommonsElements.options.filter_option.replace('####', '' + position_author_in_menu));
     data.author_selected = await element.getText();
     return element.click();
 });
 Then(/^I want validate posts lists only contain author selected in author filter$/, async function () {
     let posts = await this.driver.$$(DOMCommonsElements.options.item_title);
-    let founded  = await items_founded(posts, data.author_selected);
+    let founded  = await equals_items_founded(posts, data.author_selected);
     let authors = founded.filter((s) => data.author_selected.trim().toLowerCase() !== s.trim().toLowerCase())
     chai.assert.equal(authors.length, 0);
 });
@@ -123,18 +120,18 @@ When(/^I want open item settings$/, async function () {
     data.id_item_selected = this.driver.getUrl.name.split('/').pop();
     return button.click();
 });
-When(/^I want press delete posts button$/, async function () {
+When(/^I want press delete item button$/, async function () {
     let button = await this.driver.$(DOMCommonsElements.options.item_delete_btn);
     return button.click();
 });
-When(/^I want press confirm delete posts button$/, async function () {
+When(/^I want press confirm delete item button$/, async function () {
     let button = await this.driver.$(DOMElementsPost.post_confirm_delete);
     return button.click();
 });
 Then(/^I want validate lists items, after delete$/, async function () {
     let all_items = await this.driver.$$(DOMCommonsElements.options.list_items);
     let ids = await Promise.all( all_items.map(async(a) => (await a.getAttribute('href')).split('/')[3]));
-    let founded = items_founded(ids, data.id_item_selected);
+    let founded = equals_items_founded(ids, data.id_item_selected);
     chai.assert.equal((await founded).length, 0);
 });
 When(/^I want to write in excerpt input$/, async function () {
@@ -152,10 +149,27 @@ Then(/^should excerpt has been modified$/, async function () {
     let actualValue = await input.getValue()
     chai.assert.equal(actualValue, data.excerpt_input);
 });
-const items_founded = async (posts, strToCompare) => {
+When(/^I select page option in sidebar (.*)$/, async function (sidebar_option) {
+    let element = await this.driver.$(DOMCommonsElements.sidebar.pages.replace('####', DOMCommonsElements.sidebar.order[sidebar_option]));
+    return element.click();
+});
+When(/^I want press new item button$/, async function () {
+    let element = await this.driver.$(DOMCommonsElements.options.new_item_btn);
+    return element.click();
+});
+const equals_items_founded = async (posts, strToCompare) => {
     let data = posts;
     try{
         data = await Promise.all( posts.map(async(post) => await post.getText()));
     }catch (e){}
     return data.filter(  (item) =>  strToCompare.trim().toLowerCase() ===  item.trim().toLowerCase());
+}
+
+
+const contains_items_founded = async (posts, strToCompare) => {
+    let data = posts;
+    try{
+        data = await Promise.all( posts.map(async(post) => await post.getText()));
+    }catch (e){}
+    return data.filter(  (item) =>  item.trim().toLowerCase().includes(strToCompare.trim().toLowerCase()));
 }
