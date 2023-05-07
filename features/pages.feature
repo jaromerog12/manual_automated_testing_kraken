@@ -101,3 +101,29 @@ Feature: Pages
     And I wait for 2 seconds
     Then I want validate that filter only contain PUBLISHED status
     And I wait for 2 seconds
+
+  @user5 @web
+  Scenario: Show only posts by status and author
+    Given I navigate to page "http://localhost:2368/ghost/#/signin"
+    When I enter email "<USERNAME>"
+    And I wait for 3 seconds
+    And I enter password "<PASSWORD>"
+    And I wait for 2 seconds
+    And I click signIn
+    And I wait for 2 seconds
+    When I select page option in sidebar pages
+    And I wait for 2 seconds
+    And I open status filter
+    And I wait for 2 seconds
+    And I select filter published option
+    And I wait for 2 seconds
+    And I want filter by PUBLISHED items
+    And I wait for 2 seconds
+    And I open author filter
+    And I wait for 2 seconds
+    And I want choose filter by random author
+    And I wait for 2 seconds
+    Then I want validate that filter only contain PUBLISHED status
+    And I wait for 2 seconds
+    And I want validate posts lists only contain author selected in author filter
+    And I wait for 2 seconds
