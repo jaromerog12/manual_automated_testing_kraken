@@ -19,7 +19,7 @@ const DOMCommonsElements = {
         }
     },
     sidebar: {
-        pages: 'nav > section > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage > li:nth-child(####) > a',
+        pages: 'nav > section > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage:nth-child(##) > li:nth-child(####) > a',
         order: {
             posts: 2,
             pages: 3,
@@ -41,7 +41,9 @@ const DOMCommonsElements = {
         filters: 'section > header > section > div > div:nth-child(##filters##) > div:nth-child(1)',
         filter_option: 'body > div > div > ul > li:nth-child(####)',
         filter_all_options: 'body > div > div > ul > li',
-        list_items_tags: ''
+    },
+    home: {
+        title: 'body > div > header > div > div > div > h1'
     }
 };
 module.exports = DOMCommonsElements;

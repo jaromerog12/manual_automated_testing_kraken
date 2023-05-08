@@ -3,6 +3,7 @@ const { Given, When, Then, After} = require('@cucumber/cucumber');
 const DOMCommonsElements = require('./page_object/page_object_common');
 const DOMElementsPost  = require('./page_object/page_object_post');
 const DOMElementsTags = require('./page_object/page_object_tags');
+const DOMElementsSettings = require('./page_object/page_object_settings');
 const chai = require('chai');
 
 let data = {}
@@ -150,7 +151,7 @@ Then(/^should excerpt has been modified$/, async function () {
     chai.assert.equal(actualValue, data.excerpt_input);
 });
 When(/^I select page option in sidebar (.*)$/, async function (sidebar_option) {
-    let element = await this.driver.$(DOMCommonsElements.sidebar.pages.replace('####', DOMCommonsElements.sidebar.order[sidebar_option]));
+    let element = await this.driver.$(DOMCommonsElements.sidebar.pages.replace('####', DOMCommonsElements.sidebar.order[sidebar_option]).replace('##', sidebar_menu));
     return element.click();
 });
 When(/^I want press new item button$/, async function () {
@@ -194,6 +195,122 @@ Then(/^I validate that tag not exist in list$/, async function () {
     let founded = equals_items_founded(all_slugs, data.tag_slug);
     chai.assert.equal((await founded).length, 0);
 });
+When(/^I want add new item to navbar$/, async function () {
+    let input_navigation = await this.driver.$(DOMElementsSettings.design.input_new_item_navbar);
+    data.item_navbar = faker.random.words(1);
+    return input_navigation.setValue(data.item_navbar);
+});
+When(/^I press save button$/, async function () {
+    let button_save = await this.driver.$(DOMElementsSettings.design.button_save_navbar);
+    return button_save.click();
+});
+Then(/^Validate new item in navbar$/, async function () {
+    let items_navbar = await this.driver.$$(DOMElementsSettings.design.items_navbar);
+    let founded = equals_items_founded(items_navbar, data.item_navbar);
+    chai.assert.isTrue((await founded).length >  0);
+});
+When(/^I want add new item to second navbar$/, async function () {
+    let input_navigation = await this.driver.$(DOMElementsSettings.design.input_new_second_nav);
+    data.item_second_navbar = faker.random.words(1);
+    return input_navigation.setValue(data.item_second_navbar);
+});
+Then(/^Validate new item in second navbar$/, async function () {
+    let items_navbar = await this.driver.$$(DOMElementsSettings.design.items_second_navbar);
+    let founded = equals_items_founded(items_navbar, data.item_second_navbar);
+    chai.assert.isTrue((await founded).length >  0);
+});
+When(/^I want press delete item navbar button$/, async function () {
+    let items_navbar = await this.driver.$$(DOMElementsSettings.design.list_items_navbar_admin);
+    data.items_quantity = items_navbar.length;
+    let position_item_to_select = Math.floor(Math.random() * items_navbar.length) + 1;
+    let input_name_navbar = await this.driver.$(DOMElementsSettings.design.input_new_item_navbar_nth.replace('####', '' + position_item_to_select));
+    data.item_nav = await input_name_navbar.getValue();
+    let posts = await this.driver.$(DOMElementsSettings.design.button_delete_navbar.replace('####','' + position_item_to_select));
+    return posts.click();
+});
+Then(/^I want validate item not exist in navbar$/, async function () {
+    let items_navbar = await this.driver.$$(DOMElementsSettings.design.items_navbar);
+    let founded = equals_items_founded(items_navbar, data.item_nav);
+    chai.assert.isTrue((await founded).length ===  0);
+});
+
+When(/^I want press delete item second navbar button$/, async function () {
+    let items_navbar = await this.driver.$$(DOMElementsSettings.design.list_items_second_navbar_admin);
+    data.items_quantity = items_navbar.length;
+    let position_item_to_select = Math.floor(Math.random() * items_navbar.length) + 1;
+    let input_name_navbar = await this.driver.$(DOMElementsSettings.design.input_new_item_second_navbar_nth.replace('####', '' + position_item_to_select));
+    data.item_sec_nav = await input_name_navbar.getValue();
+    let posts = await this.driver.$(DOMElementsSettings.design.button_delete_item_second_nav.replace('####','' + position_item_to_select));
+    return posts.click();
+});
+Then(/^I want validate item not exist in second navbar$/, async function () {
+    let items_navbar = await this.driver.$$(DOMElementsSettings.design.items_second_navbar);
+    let founded = equals_items_founded(items_navbar, data.item_sec_nav);
+    chai.assert.isTrue((await founded).length ===  0);
+});
+When(/^I want expand (.*) menu$/, async function (menu_class) {
+    let input_name_navbar = await this.driver.$(DOMElementsSettings.general.expand.replace('####', '' + menu_class));
+    return input_name_navbar.click();
+});
+When(/^I fill fields in title$/, async function () {
+    let input_title = await this.driver.$(DOMElementsSettings.general.input_title);
+    data.title_expand_1 = faker.random.words(1);
+    await input_title.setValue(data.title_expand_1);
+});
+When(/^I want press save button general option$/, async function () {
+    let button_save = await this.driver.$(DOMElementsSettings.general.button_save_general_option);
+    return button_save.click();
+});
+Then(/^Validate title in home page$/, async  function () {
+    let title = await this.driver.$(DOMCommonsElements.home.title);
+    chai.assert.equal(await title.getText(), data.title_expand_1);
+});
+When(/^I want expand (.*) menu site meta$/, async function (menu_class) {
+    let input_name_navbar = await this.driver.$(DOMElementsSettings.general.expand_site_meta.replace('####', '' + menu_class));
+    return input_name_navbar.click();
+});
+When(/^I fill fields metadata$/, async function () {
+    let input_title = await this.driver.$(DOMElementsSettings.general.input_title_metadata);
+    data.title_metadata = faker.random.words(1);
+    await input_title.setValue(data.title_metadata);
+    let input_description = await this.driver.$(DOMElementsSettings.general.input_description_metadata);
+    data.description_metadata = faker.random.words(1);
+    await input_description.setValue(data.description_metadata);
+});
+Then(/^Validate metadata$/, async function () {
+    let validate_title =  await this.driver.$(DOMElementsSettings.general.validate_metadata_title);
+    chai.assert.equal(await validate_title.getText(), data.title_metadata);
+    let validate_description =  await this.driver.$(DOMElementsSettings.general.validate_metadata_description);
+    chai.assert.equal(await validate_description.getText(), data.description_metadata);
+});
+When(/^I fill fields twitter$/, async function () {
+    let input_title = await this.driver.$(DOMElementsSettings.general.input_title_twitter);
+    data.title_twitter = faker.random.words(1);
+    await input_title.setValue(data.title_twitter);
+    let input_description = await this.driver.$(DOMElementsSettings.general.input_description_twitter);
+    data.description_twitter = faker.random.words(1);
+    await input_description.setValue(data.description_twitter);
+});
+Then(/^Validate twitter$/, async function () {
+    let validate_title =  await this.driver.$(DOMElementsSettings.general.validate_title_twitter);
+    chai.assert.equal(await validate_title.getText(), data.title_twitter);
+    let validate_description =  await this.driver.$(DOMElementsSettings.general.validate_description_twitter);
+    chai.assert.equal(await validate_description.getText(), data.description_twitter);
+});
+When(/^I fill fields facebook$/, async function () {
+    let input_title = await this.driver.$(DOMElementsSettings.general.input_title_facebook);
+    data.title_facebook = faker.random.words(1);
+    await input_title.setValue(data.title_facebook);
+    let input_description = await this.driver.$(DOMElementsSettings.general.input_description_facebook);
+    data.input_description_facebook = faker.random.words(1);
+    await input_description.setValue(data.input_description_facebook);
+});
+Then(/^Validate facebook$/, async function () {
+    let validate_title =  await this.driver.$(DOMElementsSettings.general.validate_title_facebook);
+    chai.assert.equal(await validate_title.getText(), data.title_facebook);
+    let validate_description =  await this.driver.$(DOMElementsSettings.general.validate_description_facebook);
+    chai.assert.equal(await validate_description.getText(), data.input_description_facebook);
+});
 const equals_items_founded = async (posts, strToCompare) => {
     let data = posts;
     try{
@@ -202,7 +319,6 @@ const equals_items_founded = async (posts, strToCompare) => {
     return data.filter(  (item) =>  strToCompare.trim().toLowerCase() ===  item.trim().toLowerCase());
 }
 
-
 const contains_items_founded = async (posts, strToCompare) => {
     let data = posts;
     try{
@@ -210,3 +326,4 @@ const contains_items_founded = async (posts, strToCompare) => {
     }catch (e){}
     return data.filter(  (item) =>  item.trim().toLowerCase().includes(strToCompare.trim().toLowerCase()));
 }
+
