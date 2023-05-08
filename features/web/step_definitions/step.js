@@ -248,6 +248,69 @@ Then(/^I want validate item not exist in second navbar$/, async function () {
     let founded = equals_items_founded(items_navbar, data.item_sec_nav);
     chai.assert.isTrue((await founded).length ===  0);
 });
+When(/^I want expand (.*) menu$/, async function (menu_class) {
+    let input_name_navbar = await this.driver.$(DOMElementsSettings.general.expand.replace('####', '' + menu_class));
+    return input_name_navbar.click();
+});
+When(/^I fill fields in title$/, async function () {
+    let input_title = await this.driver.$(DOMElementsSettings.general.input_title);
+    data.title_expand_1 = faker.random.words(1);
+    await input_title.setValue(data.title_expand_1);
+});
+When(/^I want press save button general option$/, async function () {
+    let button_save = await this.driver.$(DOMElementsSettings.general.button_save_general_option);
+    return button_save.click();
+});
+Then(/^Validate title in home page$/, async  function () {
+    let title = await this.driver.$(DOMCommonsElements.home.title);
+    chai.assert.equal(await title.getText(), data.title_expand_1);
+});
+When(/^I want expand (.*) menu site meta$/, async function (menu_class) {
+    let input_name_navbar = await this.driver.$(DOMElementsSettings.general.expand_site_meta.replace('####', '' + menu_class));
+    return input_name_navbar.click();
+});
+When(/^I fill fields metadata$/, async function () {
+    let input_title = await this.driver.$(DOMElementsSettings.general.input_title_metadata);
+    data.title_metadata = faker.random.words(1);
+    await input_title.setValue(data.title_metadata);
+    let input_description = await this.driver.$(DOMElementsSettings.general.input_description_metadata);
+    data.description_metadata = faker.random.words(1);
+    await input_description.setValue(data.description_metadata);
+});
+Then(/^Validate metadata$/, async function () {
+    let validate_title =  await this.driver.$(DOMElementsSettings.general.validate_metadata_title);
+    chai.assert.equal(await validate_title.getText(), data.title_metadata);
+    let validate_description =  await this.driver.$(DOMElementsSettings.general.validate_metadata_description);
+    chai.assert.equal(await validate_description.getText(), data.description_metadata);
+});
+When(/^I fill fields twitter$/, async function () {
+    let input_title = await this.driver.$(DOMElementsSettings.general.input_title_twitter);
+    data.title_twitter = faker.random.words(1);
+    await input_title.setValue(data.title_twitter);
+    let input_description = await this.driver.$(DOMElementsSettings.general.input_description_twitter);
+    data.description_twitter = faker.random.words(1);
+    await input_description.setValue(data.description_twitter);
+});
+Then(/^Validate twitter$/, async function () {
+    let validate_title =  await this.driver.$(DOMElementsSettings.general.validate_title_twitter);
+    chai.assert.equal(await validate_title.getText(), data.title_twitter);
+    let validate_description =  await this.driver.$(DOMElementsSettings.general.validate_description_twitter);
+    chai.assert.equal(await validate_description.getText(), data.description_twitter);
+});
+When(/^I fill fields facebook$/, async function () {
+    let input_title = await this.driver.$(DOMElementsSettings.general.input_title_facebook);
+    data.title_facebook = faker.random.words(1);
+    await input_title.setValue(data.title_facebook);
+    let input_description = await this.driver.$(DOMElementsSettings.general.input_description_facebook);
+    data.input_description_facebook = faker.random.words(1);
+    await input_description.setValue(data.input_description_facebook);
+});
+Then(/^Validate facebook$/, async function () {
+    let validate_title =  await this.driver.$(DOMElementsSettings.general.validate_title_facebook);
+    chai.assert.equal(await validate_title.getText(), data.title_facebook);
+    let validate_description =  await this.driver.$(DOMElementsSettings.general.validate_description_facebook);
+    chai.assert.equal(await validate_description.getText(), data.input_description_facebook);
+});
 const equals_items_founded = async (posts, strToCompare) => {
     let data = posts;
     try{

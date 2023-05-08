@@ -41,6 +41,9 @@ const DOMCommonsElements = {
         filters: 'section > header > section > div > div:nth-child(##filters##) > div:nth-child(1)',
         filter_option: 'body > div > div > ul > li:nth-child(####)',
         filter_all_options: 'body > div > div > ul > li',
+    },
+    home: {
+        title: 'body > div > header > div > div > div > h1'
     }
 };
 module.exports = DOMCommonsElements;
