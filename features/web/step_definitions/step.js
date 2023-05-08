@@ -3,6 +3,7 @@ const { Given, When, Then, After} = require('@cucumber/cucumber');
 const DOMCommonsElements = require('./page_object/page_object_common');
 const DOMElementsPost  = require('./page_object/page_object_post');
 const DOMElementsTags = require('./page_object/page_object_tags');
+const DOMElementsSettings = require('./page_object/page_object_settings');
 const chai = require('chai');
 
 let data = {}
@@ -150,7 +151,7 @@ Then(/^should excerpt has been modified$/, async function () {
     chai.assert.equal(actualValue, data.excerpt_input);
 });
 When(/^I select page option in sidebar (.*)$/, async function (sidebar_option) {
-    let element = await this.driver.$(DOMCommonsElements.sidebar.pages.replace('####', DOMCommonsElements.sidebar.order[sidebar_option]));
+    let element = await this.driver.$(DOMCommonsElements.sidebar.pages.replace('####', DOMCommonsElements.sidebar.order[sidebar_option]).replace('##', sidebar_menu));
     return element.click();
 });
 When(/^I want press new item button$/, async function () {
@@ -194,6 +195,59 @@ Then(/^I validate that tag not exist in list$/, async function () {
     let founded = equals_items_founded(all_slugs, data.tag_slug);
     chai.assert.equal((await founded).length, 0);
 });
+When(/^I want add new item to navbar$/, async function () {
+    let input_navigation = await this.driver.$(DOMElementsSettings.design.input_new_item_navbar);
+    data.item_navbar = faker.random.words(1);
+    return input_navigation.setValue(data.item_navbar);
+});
+When(/^I press save button$/, async function () {
+    let button_save = await this.driver.$(DOMElementsSettings.design.button_save_navbar);
+    return button_save.click();
+});
+Then(/^Validate new item in navbar$/, async function () {
+    let items_navbar = await this.driver.$$(DOMElementsSettings.design.items_navbar);
+    let founded = equals_items_founded(items_navbar, data.item_navbar);
+    chai.assert.isTrue((await founded).length >  0);
+});
+When(/^I want add new item to second navbar$/, async function () {
+    let input_navigation = await this.driver.$(DOMElementsSettings.design.input_new_second_nav);
+    data.item_second_navbar = faker.random.words(1);
+    return input_navigation.setValue(data.item_second_navbar);
+});
+Then(/^Validate new item in second navbar$/, async function () {
+    let items_navbar = await this.driver.$$(DOMElementsSettings.design.items_second_navbar);
+    let founded = equals_items_founded(items_navbar, data.item_second_navbar);
+    chai.assert.isTrue((await founded).length >  0);
+});
+When(/^I want press delete item navbar button$/, async function () {
+    let items_navbar = await this.driver.$$(DOMElementsSettings.design.list_items_navbar_admin);
+    data.items_quantity = items_navbar.length;
+    let position_item_to_select = Math.floor(Math.random() * items_navbar.length) + 1;
+    let input_name_navbar = await this.driver.$(DOMElementsSettings.design.input_new_item_navbar_nth.replace('####', '' + position_item_to_select));
+    data.item_nav = await input_name_navbar.getValue();
+    let posts = await this.driver.$(DOMElementsSettings.design.button_delete_navbar.replace('####','' + position_item_to_select));
+    return posts.click();
+});
+Then(/^I want validate item not exist in navbar$/, async function () {
+    let items_navbar = await this.driver.$$(DOMElementsSettings.design.items_navbar);
+    let founded = equals_items_founded(items_navbar, data.item_nav);
+    chai.assert.isTrue((await founded).length ===  0);
+});
+
+When(/^I want press delete item second navbar button$/, async function () {
+    let items_navbar = await this.driver.$$(DOMElementsSettings.design.list_items_second_navbar_admin);
+    data.items_quantity = items_navbar.length;
+    let position_item_to_select = Math.floor(Math.random() * items_navbar.length) + 1;
+    let input_name_navbar = await this.driver.$(DOMElementsSettings.design.input_new_item_second_navbar_nth.replace('####', '' + position_item_to_select));
+    data.item_sec_nav = await input_name_navbar.getValue();
+    let posts = await this.driver.$(DOMElementsSettings.design.button_delete_item_second_nav.replace('####','' + position_item_to_select));
+    return posts.click();
+});
+Then(/^I want validate item not exist in second navbar$/, async function () {
+    let items_navbar = await this.driver.$$(DOMElementsSettings.design.items_second_navbar);
+    let founded = equals_items_founded(items_navbar, data.item_sec_nav);
+    chai.assert.isTrue((await founded).length ===  0);
+});
 const equals_items_founded = async (posts, strToCompare) => {
     let data = posts;
     try{
@@ -202,7 +256,6 @@ const equals_items_founded = async (posts, strToCompare) => {
     return data.filter(  (item) =>  strToCompare.trim().toLowerCase() ===  item.trim().toLowerCase());
 }
 
-
 const contains_items_founded = async (posts, strToCompare) => {
     let data = posts;
     try{
@@ -210,3 +263,4 @@ const contains_items_founded = async (posts, strToCompare) => {
     }catch (e){}
     return data.filter(  (item) =>  item.trim().toLowerCase().includes(strToCompare.trim().toLowerCase()));
 }
+
