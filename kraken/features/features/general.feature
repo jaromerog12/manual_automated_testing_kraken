@@ -2,14 +2,14 @@ Feature: General
 
   @user1 @web
   Scenario: update title and description
-    Given I navigate to page "http://localhost:2368/ghost//signin"
+    Given I navigate to page "http://localhost:2368/ghost/#/signin"
     When I enter email "<USERNAME>"
     And I wait for 2 seconds
     And I enter password "<PASSWORD>"
     And I wait for 2 seconds
     And I click signIn
     And I wait for 2 seconds
-    When I navigate to page "http://localhost:2368/ghost//settings/general"
+    When I navigate to page "http://localhost:2368/ghost/#/settings/general"
     And I wait for 2 seconds
     And I want expand setting-first menu
     And I wait for 2 seconds
@@ -24,14 +24,14 @@ Feature: General
 
   @user2 @web
   Scenario: update metadata
-    Given I navigate to page "http://localhost:2368/ghost//signin"
+    Given I navigate to page "http://localhost:2368/ghost/#/signin"
     When I enter email "<USERNAME>"
     And I wait for 2 seconds
     And I enter password "<PASSWORD>"
     And I wait for 2 seconds
     And I click signIn
     And I wait for 2 seconds
-    When I navigate to page "http://localhost:2368/ghost//settings/general"
+    When I navigate to page "http://localhost:2368/ghost/#/settings/general"
     And I wait for 2 seconds
     And I want expand setting-first menu site meta
     And I wait for 2 seconds
@@ -43,15 +43,15 @@ Feature: General
     And I wait for 2 seconds
 
   @user3 @web
-  Scenario: update metadata
-    Given I navigate to page "http://localhost:2368/ghost//signin"
+  Scenario: update facebook
+    Given I navigate to page "http://localhost:2368/ghost/#/signin"
     When I enter email "<USERNAME>"
     And I wait for 2 seconds
     And I enter password "<PASSWORD>"
     And I wait for 2 seconds
     And I click signIn
     And I wait for 2 seconds
-    When I navigate to page "http://localhost:2368/ghost//settings/general"
+    When I navigate to page "http://localhost:2368/ghost/#/settings/general"
     And I wait for 2 seconds
     And I want expand setting menu site meta
     And I wait for 2 seconds
@@ -63,15 +63,15 @@ Feature: General
     And I wait for 2 seconds
 
   @user3 @web
-  Scenario: update metadata
-    Given I navigate to page "http://localhost:2368/ghost//signin"
+  Scenario: update Twitter
+    Given I navigate to page "http://localhost:2368/ghost/#/signin"
     When I enter email "<USERNAME>"
     And I wait for 2 seconds
     And I enter password "<PASSWORD>"
     And I wait for 2 seconds
     And I click signIn
     And I wait for 2 seconds
-    When I navigate to page "http://localhost:2368/ghost//settings/general"
+    When I navigate to page "http://localhost:2368/ghost/#/settings/general"
     And I wait for 2 seconds
     And I want expand setting-last menu site meta
     And I wait for 2 seconds
