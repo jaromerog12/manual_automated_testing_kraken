@@ -5,14 +5,25 @@
 * Leonardo Bustamante
 * Kevin Alexander
 
-### Entrega semana 5
+## Entrega semana 5
+
+### Requerimientos generales
+
+- Se debe contar con la ultima version disponible de node.js para este caso se utilizo la version `18.16.0.`
+
+### Instalacion de pupeter
 
 #### Requerimientos
 
-- Se debe contar con la ultima version disponible de node.js para este caso se utilizo la version `18.16.0.`
-- Tener instalado de manera local el CMS ghost, en caso de no contar con una instalacion existente utilice el siguiente [enlace](https://misovirtual.virtual.uniandes.edu.co/codelabs/ghost-local-deployment/index.html#2 "Link")  .
+- Tener instalado de manera local el CMS ghost, para esto existen dos alternativas:
+	- La primera es realizar una instalacion manual de Ghost segun indica su documentacion, que se encuentra en el siguiente [enlace](https://ghost.org/docs/install/local/ "Link").
 
-#### Instalacion de pupeter
+	- La segunda es utilizando un contenedor de docker, para poder realizar la instalacion usando un contenedor debe ejecutar el siguiente comando en su terminal
+`docker run -d --name some-ghost -p 2368:2368 -e NODE_ENV=development ghost`
+
+**Nota**: Se recomienda utilizar la segunda opcion, ya que evita la instalacion de mas componentes. Sin embargo para utilizarala debe contar con una instalacion funcionando de docker en su maquina.
+
+#### Guia de ejecucion
 
 1. Clonar el repositorio o hacer un fork al repositorio.
 2. En la terminal de comandos de su preferencia y dirijase donde se encuentra el repositositorio, luego ubiquese en la carpeta **puppeteer**.
@@ -21,12 +32,18 @@
 4. Durante la instalacion de ghost, se le solicito crear un usuario y contraseña, para la administracion del contenido. Estos datos deben agregarse en el archivo `config.json` que se encuentra en la raiz de la carpeta **puppete**.
 5. Para ejecutar los test de puppeteer se necesita esta en la carpeta **puppeteer** y ejecutar por consola node index.js con eso correran los test.
 
-#### Instalacion de Kraken
+### Instalacion de Kraken
+
+#### Requerimientos
+
+- Tener instalado de manera local el CMS ghost, en caso de no contar con una instalacion existente utilice el siguiente [enlace](https://misovirtual.virtual.uniandes.edu.co/codelabs/ghost-local-deployment/index.html#2 "Link"), la version utilizada para esta entrega es `3.41.1`.
+
+#### Guia de ejecucion
 
 1. Clonar el repositorio o hacer un fork al repositorio.
 2. En la terminal de comandos de su preferencia y dirijase donde se encuentra el repositositorio, luego ubiquese en la carpeta **kraken**.
 3. Realice la instalacion de los paquetes del proyecto utilizando el comando 
-`npm install ` en la terminal, se recomienda correr este comando con permisos de Administrador.
+`npm install` en la terminal, se recomienda correr este comando con permisos de Administrador.
 4. Para ejecutar las pruebas utilice el siguiente comando:
 `npx kraken-node run`
 
@@ -68,7 +85,7 @@
 |  Tags |  Crear tag | Se debe autenticar en la aplicacion, seleccionar tags en el sidebar, despues  se debe agregar una nuevo tag, se debe diligenciar los campos. Por ultimo se debe dar en el boton guardar.|
 |  Tags |  Eliminar Tag | Se debe autenticar en la aplicacion, seleccionar tag en el sidebar, despues  se debe seleccionar el tag a eliminar, por ultimo se debe confirmar la eliminacion. |
 
-### Entrega semana 4
+## Entrega semana 4
 
 Para la entrega del reporte del uso de las herramientas Monkey Cypress y Rippuppet, los invito a navegar a la wiki de nuestro proyecto:
 
