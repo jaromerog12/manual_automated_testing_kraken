@@ -132,6 +132,14 @@ dist
 .idea/.*
 
 #kraken
-./reports/.*
 /kraken/.kraken/
 /kraken/reports/
+/kraken_ghost_4_44_0/.kraken/
+/kraken_ghost_4_44_0/reports/
+/.idea
+/.DS_Store
+/kraken/.DS_Store
+/kraken/features/.DS_Store
+.DS_Store
+features/.DS_Store
+ ../node_modules_delete/
