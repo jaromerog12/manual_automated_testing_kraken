@@ -120,7 +120,7 @@ When(/^I want choose random item$/, async function () {
     let posts = await this.driver.$(DOMElementsPost.posts.replace('####','' + position_item_to_delete));
     return posts.click();
 });
-When(/^I want open-close item settings$/, async function () {
+When(/^I want open item settings$/, async function () {
     let button = await this.driver.$(DOMCommonsElements.options.item_settings);
     data.id_item_selected = this.driver.getUrl.name.split('/').pop();
     return button.click();
