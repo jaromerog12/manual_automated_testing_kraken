@@ -1,4 +1,5 @@
-Feature: week6
+Feature: week6-part-1
+
   @user1 @web
   Scenario: update title
     Given I navigate to page "http://localhost:2368/ghost/#/signin"
@@ -80,6 +81,7 @@ Feature: week6
     And I wait for 2 seconds
     Then Validate facebook
     And I wait for 2 seconds
+    
   @user5 @web
   Scenario: Show only page by status
     Given I navigate to page "http://localhost:2368/ghost/#/signin"

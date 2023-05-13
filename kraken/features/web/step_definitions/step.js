@@ -113,6 +113,7 @@ When(/^I want choose random item$/, async function () {
     let all_items = await this.driver.$$(DOMCommonsElements.options.list_items);
     data.items_quantity = all_items.length;
     let position_item_to_delete = Math.floor(Math.random() * all_items.length) + 1;
+    position_item_to_delete = position_item_to_delete < 2 ? 2 : position_item_to_delete;
     let posts = await this.driver.$(DOMElementsPost.posts.replace('####','' + position_item_to_delete));
     return posts.click();
 });

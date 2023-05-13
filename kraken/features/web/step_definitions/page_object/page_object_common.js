@@ -39,7 +39,7 @@ const DOMCommonsElements = {
         item_settings : "button.post-settings",
         item_excerpt_input: 'div.settings-menu-pane-in.settings-menu.settings-menu-pane > div.settings-menu-content > form > div:nth-child(4) > textarea',
         close_item_settings: 'div.settings-menu-pane-in.settings-menu.settings-menu-pane > div.settings-menu-header > button',
-        item_delete_btn: 'div.settings-menu-pane-in.settings-menu.settings-menu-pane > div.settings-menu-content > form > button',
+        item_delete_btn: 'button.gh-btn.gh-btn-hover-red.gh-btn-icon.settings-menu-delete-button',
         new_item_btn: 'div.gh-app.ember-view > div > main > section > header > section > a',
         items: '.gh-canvas > section > ol > .gh-list-row.gh-posts-list-item',
         filters: 'section > header > section > div > div:nth-child(##filters##) > div:nth-child(1)',
