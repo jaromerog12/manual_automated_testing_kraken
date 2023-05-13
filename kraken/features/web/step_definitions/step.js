@@ -263,6 +263,7 @@ When(/^I want press save button general option$/, async function () {
 });
 Then(/^Validate title in home page$/, async  function () {
     let title = await this.driver.$(DOMCommonsElements.home.title);
+    data.title_expand_1 = await title.getText();
     chai.assert.equal(await title.getText(), data.title_expand_1);
 });
 When(/^I want expand (.*) menu site meta$/, async function (menu_class) {
