@@ -3,8 +3,45 @@
 * Jorge A. Romero Gutierrez
 * Camilo Zuleta
 * Leonardo Bustamante
-* Kevin Alexander
+* Kevin Maldonado
 
+### Entrega semana 6
+
+Escenarios que se utilizarán para probar en la nueva versión:
+
+|  Funcionalidad | Nombre escenarios de pruebas  |  Descripcion escenarios de pruebas  |
+| ------------ | ------------ |------------ |
+|  Paginas |  Crear nueva página| Se debe autenticar en la aplicacion, seleccionar pages en el sidebar, despues  se debe agregar una nueva página, se debe agregar titulo y contenido. Por ultimo se debe dar en el boton publicar.|
+|  Paginas |  Actualizar página |  Se debe autenticar en la aplicacion, seleccionar pages en el sidebar, seleccionar la pagina a editar, modificar el titulo o contenido. Por ultimo se debe dar en el boton publicar.|
+|  Paginas |  Eliminar página | Se debe autenticar en la aplicacion, seleccionar pages en el sidebar, seleccionar la pagina a eliminar, por ultimo dar clic en eliminar y confirmar la operación.|
+|  Paginas |  Mostrar pagina por estado | Se debe autenticar en la aplicacion, seleccionar pages en el sidebar, se debe seleccionar el filtro por estado y luego realizar el filtrado.|
+|  Paginas |  Mostrar pagina por autor | Se debe autenticar en la aplicacion, seleccionar pages en el sidebar, se debe seleccionar el filtro por autor y luego realizar el filtrado.|
+
+|  Funcionalidad | Nombre escenarios de pruebas  |  Descripcion escenarios de pruebas  |
+| ------------ | ------------ |------------ |
+|  Post |  Crear nuevo post con estado publicado | Se debe autenticar en la aplicacion, seleccionar post en el sidebar, despues  se debe agregar una nuevo post, se debe agregar titulo y contenido. Por ultimo se debe dar en el boton publicar. |
+|  Post | Crear nuevo post con estado borrador |  Se debe autenticar en la aplicacion, seleccionar post en el sidebar, despues  se debe agregar una nuevo post, se debe agregar titulo y contenido. NO se debe dar en el boton publicar.|
+|  Post |  Actulizar post | Se debe autenticar en la aplicacion, seleccionar post en el sidebar, despues  se debe seleccionar el post a modificar, se edita el titulo o contenido. Por ultimo se debe dar en el boton publicar, en caso de querer publicar los cambios en caso contrario omitase. |
+|  Post |  Eliminar post | Se debe autenticar en la aplicacion, seleccionar post en el sidebar, despues  se debe seleccionar el post a eliminar, por ultimo se debe confirmar la eliminacion.|
+|  Post |  Filtrar post por estado y autor | Se debe autenticar en la aplicacion, seleccionar post en el sidebar, se debe seleccionar el filtro por estado o autor y luego realizar el filtrado.|
+
+Requisitos para ejecutar la prueba:
+<pre>
+    NodeJS:
+        version: 14.21.3
+
+    Docker:
+    1. Tener instalado docker en su máquina
+    2. Ejecutar el siguiente comando
+    docker run -d -e url=http://localhost:3002 -p 3002:2368 --name ghost_4.44.0 ghost:4.44.0
+    3. Probar que el contenedor de ghost haya subido en el puerto especificado:
+    en su navegador de preferencia dirigirse a la url http://localhost:3002
+</pre>
+
+### Impacto de la ejecución de las pruebas en la nueva versión de ghost:
+ #### Trasversales
+- Todos los escenarios fallaron, debido al cambio de ***id*** en los inputs y el botón en el formularios de login y este ***caso*** es utilizado en todos los escenarios.
+- Todos
 ### Entrega semana 5
 
 #### Requerimientos
@@ -22,13 +59,23 @@
 5. Para ejecutar los test de puppeteer se necesita esta en la carpeta **puppeteer** y ejecutar por consola node index.js con eso correran los test.
 
 #### Instalacion de Kraken
-
+<pre>Versiones utilizadas:
+- Node: 14.21.3
+- ghost: 3.41.1
+</pre>
 1. Clonar el repositorio o hacer un fork al repositorio.
 2. En la terminal de comandos de su preferencia y dirijase donde se encuentra el repositositorio, luego ubiquese en la carpeta **kraken**.
 3. Realice la instalacion de los paquetes del proyecto utilizando el comando 
 `npm install ` en la terminal, se recomienda correr este comando con permisos de Administrador.
 4. Para ejecutar las pruebas utilice el siguiente comando:
 `npx kraken-node run`
+<pre>
+A tener en cuenta:
+- Los archivos feature se encuentran en el path kraken/features/features debido a que si se intentan ejecutar todos los archivos al tiempo, muchas veces falla.
+De presentarse este caso, se debe intentar ejecutar archivo por archivo.
+Para que los archivos puedan ser ejecutados se deben reubicar los .feature en el path kraken/features y ejecutar el comando anteriormente mencionado.
+- En algunas ocasiones también sucede que si se ejecutan todos los escenarios de una feature, el test falla. Para este caso toca ejecutar escenario a escenario
+</pre>
 
 #### Funcionalidades y Escenarios de pruebás
 
