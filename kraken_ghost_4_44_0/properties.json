@@ -1,0 +1,14 @@
+{
+  "USERNAME": "ja.romerog12@uniandes.edu.co",
+  "PASSWORD": "Gh0st$2023",
+  "SIGN_IN_PAGE": "http://localhost:3002/ghost/#/signin",
+  "url_page": "http://localhost:3002/ghost/#/pages",
+  "url_posts": "http://localhost:3002/ghost/#/posts",
+  "url_draft_posts": "http://localhost:3002/ghost/#/posts?type=draft",
+  "url_tags": "http://localhost:3002/ghost/#/tags",
+  "url_design": "http://localhost:3002/ghost/#/settings/design",
+  "url_home_page": "http://localhost:3002",
+  "url_settings_navigation": "http://localhost:3002/ghost/#/settings/navigation",
+  "url_general": "http://localhost:3002/ghost/#/settings/general",
+  "position_pages_sidebar": 3
+}
