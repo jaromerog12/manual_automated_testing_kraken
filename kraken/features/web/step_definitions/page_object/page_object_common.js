@@ -19,7 +19,11 @@ const DOMCommonsElements = {
         }
     },
     sidebar: {
-        pages: 'nav > section > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage:nth-child(##) > li:nth-child(####) > a',
+        pages: 'body > div.gh-app.ember-view > div > nav.gh-nav.ember-view > section > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage > li:nth-child(####) > a',
+        type: {
+            manage: 1,
+            settings: 2
+        },
         order: {
             posts: 2,
             pages: 3,
@@ -32,7 +36,7 @@ const DOMCommonsElements = {
         back_list_items: 'section > header > div > div:nth-child(1) > a',
         list_items_status: 'body > div.gh-app.ember-view > div > main > section > section > ol > li:nth-child(2) > a.ember-view.permalink.gh-list-data.gh-post-list-status > div > span',
         list_items: '.gh-canvas > section > ol > .gh-list-row.gh-posts-list-item > a:nth-child(1)',
-        item_settings : 'section > header > section > button',
+        item_settings : "button.post-settings",
         item_excerpt_input: 'div.settings-menu-pane-in.settings-menu.settings-menu-pane > div.settings-menu-content > form > div:nth-child(4) > textarea',
         close_item_settings: 'div.settings-menu-pane-in.settings-menu.settings-menu-pane > div.settings-menu-header > button',
         item_delete_btn: 'div.settings-menu-pane-in.settings-menu.settings-menu-pane > div.settings-menu-content > form > button',

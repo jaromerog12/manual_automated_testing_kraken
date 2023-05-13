@@ -151,7 +151,7 @@ Then(/^should excerpt has been modified$/, async function () {
     chai.assert.equal(actualValue, data.excerpt_input);
 });
 When(/^I select page option in sidebar (.*)$/, async function (sidebar_option) {
-    let element = await this.driver.$(DOMCommonsElements.sidebar.pages.replace('####', DOMCommonsElements.sidebar.order[sidebar_option]).replace('##', sidebar_menu));
+    let element = await this.driver.$(DOMCommonsElements.sidebar.pages.replace('####', DOMCommonsElements.sidebar.order[sidebar_option]));
     return element.click();
 });
 When(/^I want press new item button$/, async function () {
@@ -163,19 +163,19 @@ When(/^I want fill fields$/, async function () {
     data.tag_name = faker.random.words(3);
     await tag_input_name.setValue(data.tag_name);
     let tag_input_slug = await this.driver.$(DOMElementsTags.input_slug);
-    data.tag_slug = faker.internet.domainSuffix();
-    await tag_input_slug.setValue(data.tag_slug);
     let tag_input_description = await this.driver.$(DOMElementsTags.input_description);
     data.tag_description = faker.random.words(10);
     await tag_input_description.setValue(data.tag_description);
+    data.tag_slug = await tag_input_slug.getValue();
 });
 When(/^I want to press save button$/, async function () {
     let tag_save_button = await this.driver.$(DOMElementsTags.button_save);
     await tag_save_button.click();
 });
 Then(/^I want validate tags in list$/, async  function () {
-    let posts = await this.driver.$$(DOMElementsTags.slug_in_list_tags);
-    let founded  = await equals_items_founded(posts, data.tag_name);
+    let all_tags = await this.driver.$$(DOMElementsTags.slug_in_list_tags);
+    let tags = await Promise.all( all_tags.map(async(tag) => await tag.getText()));
+    let founded  = await equals_items_founded(tags, data.tag_slug);
     chai.assert.isTrue(founded.length > 0);
 });
 When(/^I want choose random item tags$/, async function () {
@@ -252,7 +252,7 @@ When(/^I want expand (.*) menu$/, async function (menu_class) {
     let input_name_navbar = await this.driver.$(DOMElementsSettings.general.expand.replace('####', '' + menu_class));
     return input_name_navbar.click();
 });
-When(/^I fill fields in title$/, async function () {
+When(/^I fill field title$/, async function () {
     let input_title = await this.driver.$(DOMElementsSettings.general.input_title);
     data.title_expand_1 = faker.random.words(1);
     await input_title.setValue(data.title_expand_1);
@@ -326,4 +326,3 @@ const contains_items_founded = async (posts, strToCompare) => {
     }catch (e){}
     return data.filter(  (item) =>  item.trim().toLowerCase().includes(strToCompare.trim().toLowerCase()));
 }
-
