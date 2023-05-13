@@ -8,8 +8,6 @@ const DOMPost = {
     open_all_posts: 'section > div > ul:nth-child(2) > li:nth-child(2) > a:nth-child(1)',
     filter_by_author: 'section > header > section > div > div:nth-child(1) > div:nth-child(2)',
     button_confirm_publish: "button.gh-btn.gh-btn-black.gh-btn-icon.ember-view",
-
-
     publish: 'footer > button:nth-child(2)',
     set_publish_now: '.gh-publishmenu-radio-button:nth-child(1)',
     title: 'textarea'

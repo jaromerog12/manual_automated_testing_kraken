@@ -117,6 +117,7 @@ When(/^I want choose random item$/, async function () {
     let all_items = await this.driver.$$(DOMCommonsElements.options.list_items);
     data.items_quantity = all_items.length;
     let position_item_to_delete = Math.floor(Math.random() * all_items.length) + 1;
+    position_item_to_delete = position_item_to_delete < 2 ? 2 : position_item_to_delete;
     let posts = await this.driver.$(DOMElementsPost.posts.replace('####','' + position_item_to_delete));
     return posts.click();
 });
@@ -271,6 +272,7 @@ When(/^I want press save button general option$/, async function () {
 });
 Then(/^Validate title in home page$/, async  function () {
     let title = await this.driver.$(DOMCommonsElements.home.title);
+    data.title_expand_1 = await title.getText();
     chai.assert.equal(await title.getText(), data.title_expand_1);
 });
 When(/^I want expand (.*) menu site meta$/, async function (order_menu) {
