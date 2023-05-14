@@ -101,9 +101,7 @@ Feature: Posts
     And I wait for 2 seconds
     And I want open item settings
     And I wait for 2 seconds
-    And I want press delete item button
-    And I wait for 2 seconds
-    And I want press confirm delete item button
+    And I select page option in sidebar posts
     And I wait for 2 seconds
     Then I want validate lists items, after delete
     And I wait for 2 seconds

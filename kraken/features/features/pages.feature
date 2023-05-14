@@ -103,7 +103,7 @@ Feature: Pages
   #  And I wait for 2 seconds
 #
   #@user5 @web
-  #Scenario: Show only posts by status and author
+  #Scenario: Show only pages by status and author
   #  Given I navigate to page "http://localhost:2368/ghost/#/signin"
   #  When I enter email "<USERNAME>"
   #  And I wait for 3 seconds

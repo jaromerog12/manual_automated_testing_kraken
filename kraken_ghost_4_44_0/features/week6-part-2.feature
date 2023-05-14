@@ -1,6 +1,27 @@
 Feature: week6-part-2
-  @user6 @web
-  Scenario: Show only posts by status and author
+
+  @user3 @web
+  Scenario: step-3 | Delete tag
+    Given I navigate to page "<SIGN_IN_PAGE>"
+    When I enter email "<USERNAME>"
+    And I wait for 2 seconds
+    And I enter password "<PASSWORD>"
+    And I wait for 2 seconds
+    And I click signIn
+    And I wait for 2 seconds
+    When I select page option in sidebar tags
+    And I wait for 2 seconds
+    And I want choose random item tags
+    And I wait for 2 seconds
+    And I want to press delete button
+    And I wait for 2 seconds
+    And I want to press confirm delete button
+    And I wait for 2 seconds
+    Then I validate that tag not exist in list
+    And I wait for 2 seconds
+
+  @user4 @web
+   Scenario: step-4 | Show only pages by status and author
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 3 seconds
@@ -8,7 +29,7 @@ Feature: week6-part-2
     And I wait for 2 seconds
     And I click signIn
     And I wait for 2 seconds
-    When I select page option in sidebar posts
+    When I select page option in sidebar pages
     And I wait for 2 seconds
     And I open status filter
     And I wait for 2 seconds
@@ -25,30 +46,8 @@ Feature: week6-part-2
     And I want validate posts lists only contain author selected in author filter
     And I wait for 2 seconds
 
-  @user7 @web
-  Scenario: Create new tag
-    Given I navigate to page "<SIGN_IN_PAGE>"
-    When I enter email "<USERNAME>"
-    And I wait for 2 seconds
-    And I enter password "<PASSWORD>"
-    And I wait for 2 seconds
-    And I click signIn
-    And I wait for 2 seconds
-    When I select page option in sidebar tags
-    And I wait for 2 seconds
-    And I want press new item button
-    And I wait for 2 seconds
-    And I want fill fields
-    And I wait for 2 seconds
-    And I want to press save button
-    And I wait for 2 seconds
-    And I navigate to page "<url_tags>"
-    And I wait for 2 seconds
-    Then I want validate tags in list
-    And I wait for 2 seconds
-
   @user8 @web
-  Scenario: Delete posts
+  Scenario: step-8 | update metadata
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 2 seconds
@@ -56,41 +55,41 @@ Feature: week6-part-2
     And I wait for 2 seconds
     And I click signIn
     And I wait for 2 seconds
-    When I select page option in sidebar posts
+    When I navigate to page "<url_general>"
     And I wait for 2 seconds
-    And I want choose random item
+    And I want expand 1 menu site meta
     And I wait for 2 seconds
-    And I want open item settings
+    And I fill fields metadata
     And I wait for 2 seconds
-    And I want press delete item button
+    And I want press save button general option
     And I wait for 2 seconds
-    And I want press confirm delete item button
-    And I wait for 2 seconds
-    Then I want validate lists items, after delete
+    Then Validate metadata
     And I wait for 2 seconds
 
-  @user5 @web
-  Scenario: Show only page by status
+  @user9 @web
+  Scenario: step-9 | update title
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
-    And I wait for 3 seconds
+    And I wait for 2 seconds
     And I enter password "<PASSWORD>"
     And I wait for 2 seconds
     And I click signIn
     And I wait for 2 seconds
-    When I select page option in sidebar pages
+    When I navigate to page "<url_general>"
     And I wait for 2 seconds
-    And I open status filter
+    And I want expand setting-first menu
     And I wait for 2 seconds
-    And I select filter published option
+    And I fill field title
     And I wait for 2 seconds
-    And I want filter by PUBLISHED items
+    And I want press save button general option
     And I wait for 2 seconds
-    Then I want validate that filter only contain PUBLISHED status
+    And I navigate to page "<url_home_page>"
+    And I wait for 2 seconds
+    Then Validate title in home page
     And I wait for 2 seconds
 
   @user10 @web
-  Scenario: Delete page
+  Scenario: step-10 | update Twitter
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 2 seconds
@@ -98,15 +97,13 @@ Feature: week6-part-2
     And I wait for 2 seconds
     And I click signIn
     And I wait for 2 seconds
-    And I select page option in sidebar pages
+    When I navigate to page "<url_general>"
     And I wait for 2 seconds
-    And I want choose random item
+    And I want expand 2 menu site meta
     And I wait for 2 seconds
-    And I want open item settings
+    And I fill fields twitter
     And I wait for 2 seconds
-    And I want press delete item button
+    And I want press save button general option
     And I wait for 2 seconds
-    And I want press confirm delete item button
-    And I wait for 2 seconds
-    Then I want validate lists items, after delete
+    Then Validate twitter
     And I wait for 2 seconds

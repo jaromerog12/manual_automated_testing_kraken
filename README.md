@@ -7,7 +7,7 @@
 
 ### Entrega semana 6
 
-Impacto de la ejecución de los escenarios de pruebas en la nueva versión de ghost 4.44.0
+Impacto de la ejecución de los escenarios de pruebas de ***kraken*** en la nueva versión de ghost 4.44.0
 
 
 |Features afectadas|Funcionalidad|escenarios afectados|
@@ -45,20 +45,22 @@ Escenarios que se utilizarán para aplicar ***VRT***:
 |2|General|update metadata|
 |3|General|update title|
 |4|General|update Twitter|
-|5|Page|Delete page|
-|6|Page|Show only page by status|
+|5|Page|Show only page by status|
+|6|Page|Show only pages by status and author|
 |7|Posts|Create new post with draft status|
-|8|Posts|Delete posts|
-|9|Posts|Show only posts by status and author|
-|10|Tag|Create new tag|
+|8|Posts|Show only posts by status and author|
+|9|Tag|Create new tag|
+|10|Tag|Delete tag|
 
 <a name="ejecutar_escenarios"></a>
 Ejecutar escenarios para las diferentes versiones de ghost:
 
 1. Ejecutar Ghost en las versiones 3.41.1 y 4.44.0
     -Requisitos previos:
+
         * NodeJS: version: 14.21.3
         * Tener instalado docker en su máquina
+
 ### Ghost v 4.44.0 
 <pre>
     Docker:
@@ -79,6 +81,15 @@ Ejecutar escenarios para las diferentes versiones de ghost:
         3. Debe poder visualizar la página de home de ghost 
 </pre>
 
+- Luego de verificar que ghost esté corriendo, se debe dirigir a la url: http://localhost:<<puerto>>>>/ghost/#/signin y crear un usuario y una contraseña.
+Estos datos deben ser reemplazado en el archivo properties.json en las llaves USERNAME y PASSWORD.
+
+![image](./img_documentacion/kraken/eliminar_contenido_carpeta_reports.png)
+Imágen de la versión 4.44.0 de ghost
+
+Después de haberse logueado, se debe navegar en la plataforma para remover el splash de bienvenida que solo aparece una sola vez:
+![image](./img_documentacion/kraken/splash_inicial.png)
+
 2. Descargar el repo de la rama ***master***
 3. Se encontrarán 2 carpetas que contienen los escenarios de kraken para ambas versiones de ghost:
     
@@ -87,22 +98,22 @@ Ejecutar escenarios para las diferentes versiones de ghost:
 4. Posicionados en la raíz de cada una de las carpetas ejecutar: ***npm install***
 5. Ejecutar los escenarios:
 
-<code>Antes de lanzar el comando para correr las pruebas hay que tener en cuenta unas consideraciones</code>
+<code>Antes de lanzar el comando para correr las pruebas hay que tener en cuenta algunas consideraciones</code>
 
-- Para ambas veriones de ghost sersiorarse que existe por lo menos 1 elemento en:
+- Para ambas veriones de ghost cerciorarse que existe por lo menos 1 elemento en:
     * posts (menú posts)
     * páginas (menú pages)
-    * diseño (menú design) : Hay que crear un item de navegación y de la navegación secundaria
+    * diseño (menú design) : Hay que crear un item de navegación y otro de navegación secundaria
 
-    ***Todos se encuentran en el menú lateral izquierdo***
+    ***Todos se encuentran en el menú vertical lateral izquierdo***
 
-- dentro de las carpetas del ***punto 3*** dirigirse a la ruta llamada ***features/features***, allí se almacenan los .feature de manera temporal para que no se ejecuten todas a la misma vez porque se presentan problemas de rendimiento en la máquina y fallan los tests. Brindado ese contexto, hay que sacar los .feature archivo por archivo a la ruta ***features*** e ir ejecutando uno a uno los cual ejecutará todos los escenarios que tenga esa feature, aún de esta manera fallan algunos tests y toca ejecutar la feature pero escenario a escenario, por ejemplo comentando las features y solo dejando la que se va a probar
+- dentro de las carpetas del ***punto 3*** dirigirse a la ruta  ***features/features***, allí se almacenan los .feature de manera temporal con el fin que no se ejecuten todos en el mismo instante, debido a que se presentan problemas de rendimiento en la máquina y fallan los tests. Teniendo encuenta ese contexto, hay que mover los .feature archivo por archivo a la ruta ***features*** e ir ejecutandolos, lo cual ejecutará todos los escenarios que tenga esa feature, aún de esta manera podrían fallar algunos tests, en este caso toca ejecutar la feature pero escenario a escenario, por ejemplo comentandolos y dejando el que se va a probar.
 
 ***Los archivos que contienen los escenarios que serán utilizados para VRT se llaman week6-part-1 y week6-part-2.
 [Ejecutar prueba para VRT](#pruebas_vrt)***
 
 <a name="ejecutar_escenarios"></a>
-- Luego de esa verificación/creación y mover la feature a la ruta especifica, ejecutar el comando en la raiz de las carpetas principales:
+- Luego de esa verificación/creación y mover la feature a la ruta especifica, ejecutar el siguiente comando en la raiz de las carpetas principales:
 
 <code>npx kraken-node run</code>
 
@@ -110,36 +121,40 @@ Ejecutar escenarios para las diferentes versiones de ghost:
 #### <b>Ejecutar y obtener insumo para pruebas VRT</b>
 - Teniendo en cuenta los pasos para [ejecutar los escenarios para las diferentes versiones de ghost ](#ejecutar-pruebas-vrt) y antes de ejecutar el comando para correr las pruebas, se debe tener en cuenta lo siguiente:
 
-    <a name="paso1"></a> 
-    1.Dentro de las carpetas principales ***kraken y kraken_ghost_4_44_0*** eliminar el contenido de una subcarpeta llamada reports (de no existir, esta se creará al ejecutar la prueba).
+    <a name="consideracion1"></a> 
+    1. Dentro de las carpetas principales ***kraken y kraken_ghost_4_44_0*** eliminar el contenido de una subcarpeta llamada reports (de no existir, esta se creará al ejecutar la prueba).
 
     ![image](./img_documentacion/kraken/eliminar_contenido_carpeta_reports.png)
 
-    2. Mover los archivos week6-part-1 y week6-part-2 a la ruta <carpeta_raiz>/features, y [ejectutar la prueba](#ejecutar_escenarios). Estos archivos pueden ejecutados al tiempo. Lo recomendable es uno a uno.
+    2. Mover los archivos week6-part-1 y week6-part-2 a la ruta <carpeta_raiz>/features
 
     ![image](./img_documentacion/kraken/sacar_feature_para_ejecutarlas.png)
 
-    3. Dirigirse a la ruta  <carpeta_raiz>/reports y allí encontrá unas carpetas con con nombres extraños (hash). Usualmente crea una carpeta por archivo week_XYZ, locual, haría que la carpeta reports solo tenga 2 subcarpetas.
+Posterior a los 2 puntos anteriores, se procede a [ejectutar la prueba](#ejecutar_escenarios). Los archivos week_XYZ pueden ser ejecutados al tiempo. Lo recomendable es uno a uno.
 
-    ![image](./img_documentacion/kraken/carpetas_generadas_en_reports.png)
+    - Insumo para pruebas ***VRT***
 
-    4. Algunas veces kraken genera unas carpetas que tienen un reporte general (deben ser excluidas o eliminadas) y además las carpetas con los escenarios. Las carpetas que se deben tomar en cuenta para el siguiente paso, deben tener la siguiente estructura interna:
-    
-    ![image](./img_documentacion/kraken/carpetas_escenarios_ejecutados.png)
+        1. Dirigirse a la ruta  <carpeta_raiz>/reports y allí encontrá unas carpetas con con nombres extraños (hash). Usualmente crea una carpeta por archivo week_XYZ.feature ejecutado, lo cual, haría que la carpeta reports solo tenga 2 subcarpetas.
 
-    Donde cada carpeta subrayada con verde es un escenario que se ejecutó en el archivo week6_XYZ.feature
+        ![image](./img_documentacion/kraken/carpetas_generadas_en_reports.png)
 
-    En caso de algún error al momento de la ejecución de los archivos week_XYZ, se debe devolver al [paso 1](#paso1) del presente manual.
+        2. Algunas veces kraken genera unas carpetas que tienen un reporte general (deben ser excluidas o eliminadas) y además las carpetas con los escenarios. Las carpetas que se deben tomar en cuenta para el siguiente paso, deben tener la siguiente estructura interna:
+        
+        ![image](./img_documentacion/kraken/carpetas_escenarios_ejecutados.png)
 
-    ***Solo debe continuar al paso 5 cuando las pruebas sean exitosas***
+        Donde cada carpeta subrayada con verde es un escenario que se ejecutó en el archivo week6_XYZ.feature
 
-    5. Luego de identificar las carpetas que contienen la ejecución de los escenarios, se debe crear una carpeta de nombre ghost_3_41_1 o ghost_4_44_0 de acuerdo a la versión donde se esté revisando el reporte generado, estas carpetas serán los datos de entrada para las pruebas ***VRT***.
+        En caso de algún error al momento de la ejecución de los archivos week_XYZ.feature, se debe devolver a la [consideración 1](#consideracion1) del presente manual.
 
-    ![image](./img_documentacion/kraken/carpeta_reporte_consolidado.png)
+        ***Solo debe continuar al paso 3 cuando las pruebas sean exitosas***
 
-    Dentro de esta deben estar las carpetas generadas de la ejecución de los archivos week6_XYZ.feature (ver paso 4). Es decir, la carpeta ghost_XYZ deberá contener 10 subcarpetas que serían los escenarios ejecutados entre los 2 archivos wee6_XYZ, quedando de la siguiente manera:
+        3. Luego de identificar las carpetas que contienen la ejecución de los escenarios, se debe crear una carpeta de nombre ghost_3_41_1 o ghost_4_44_0 de acuerdo a la versión donde se hayan ejecutado las pruebas, estas carpetas serán los datos de entrada para las pruebas ***VRT***.
 
-    ![image](./img_documentacion/kraken/estructura_dentro_ghost.png)
+        ![image](./img_documentacion/kraken/carpeta_reporte_consolidado.png)
+
+        Dentro de esta deben estar las carpetas generadas de la ejecución de los archivos week6_XYZ.feature (ver paso 4). Es decir, la carpeta ghost_XYZ deberá contener 10 subcarpetas que serían los escenarios ejecutados entre los 2 archivos week6_XYZ.feature, quedando de la siguiente manera:
+
+        ![image](./img_documentacion/kraken/estructura_dentro_ghost.png)
 
     
 
