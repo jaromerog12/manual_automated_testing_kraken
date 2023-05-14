@@ -81,8 +81,8 @@ Ejecutar escenarios para las diferentes versiones de ghost:
         3. Debe poder visualizar la página de home de ghost 
 </pre>
 
-    - Luego de verificar que ghost esté corriendo, se debe dirigir a la url: http://localhost:<<puerto>>/ghost/#/signin y crear un usuario y una contraseña.
-    Estos datos deben ser reemplazado en el archivo properties.json en las llaves USERNAME y PASSWORD.
+Luego de verificar que ghost esté corriendo, se debe dirigir a la url: http://localhost:<<puerto>>/ghost/#/signin y crear un usuario y una contraseña.
+Estos datos deben ser reemplazado en el archivo properties.json en las llaves USERNAME y PASSWORD.
 
 ![image](./img_documentacion/kraken/crear_cuenta_4_44_0.png)
 
