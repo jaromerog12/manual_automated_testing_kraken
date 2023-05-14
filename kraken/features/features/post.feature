@@ -2,7 +2,7 @@ Feature: Posts
 
   @user1 @web
   Scenario: Create new post with published status
-    Given I navigate to page "http://localhost:2368/ghost/#/signin"
+    Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 3 seconds
     And I enter password "<PASSWORD>"
@@ -34,7 +34,7 @@ Feature: Posts
 
   @user2 @web
   Scenario: Create new post with draft status
-    Given I navigate to page "http://localhost:2368/ghost/#/signin"
+    Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 3 seconds
     And I enter password "<PASSWORD>"
@@ -53,14 +53,14 @@ Feature: Posts
     And I wait for 2 seconds
     Then I should show item in list
     And I wait for 2 seconds
-    And I navigate to page "http://localhost:2368/ghost/#/posts?type=draft"
+    And I navigate to page "<url_draft_posts>"
     And I wait for 2 seconds
     And I want validate new post with draft status
     And I wait for 2 seconds
 
   @user3 @web
   Scenario: Update page
-    Given I navigate to page "http://localhost:2368/ghost/#/signin"
+    Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 3 seconds
     And I enter password "<PASSWORD>"
@@ -88,7 +88,7 @@ Feature: Posts
 
   @user4 @web
   Scenario: Delete posts
-    Given I navigate to page "http://localhost:2368/ghost/#/signin"
+    Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 2 seconds
     And I enter password "<PASSWORD>"
@@ -107,7 +107,7 @@ Feature: Posts
 
   @user5 @web
   Scenario: Show only posts by status and author
-    Given I navigate to page "http://localhost:2368/ghost/#/signin"
+    Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 3 seconds
     And I enter password "<PASSWORD>"
