@@ -81,10 +81,11 @@ Ejecutar escenarios para las diferentes versiones de ghost:
         3. Debe poder visualizar la página de home de ghost 
 </pre>
 
-- Luego de verificar que ghost esté corriendo, se debe dirigir a la url: http://localhost:<<puerto>>>>/ghost/#/signin y crear un usuario y una contraseña.
-Estos datos deben ser reemplazado en el archivo properties.json en las llaves USERNAME y PASSWORD.
+    - Luego de verificar que ghost esté corriendo, se debe dirigir a la url: http://localhost:<<puerto>>/ghost/#/signin y crear un usuario y una contraseña.
+    Estos datos deben ser reemplazado en el archivo properties.json en las llaves USERNAME y PASSWORD.
 
-![image](./img_documentacion/kraken/eliminar_contenido_carpeta_reports.png)
+![image](./img_documentacion/kraken/crear_cuenta_4_44_0.png)
+
 Imágen de la versión 4.44.0 de ghost
 
 Después de haberse logueado, se debe navegar en la plataforma para remover el splash de bienvenida que solo aparece una sola vez:
@@ -96,16 +97,8 @@ Después de haberse logueado, se debe navegar en la plataforma para remover el s
     * ***kraken***: Ejecutar escenarios para la versión 3.41.1 de ghost
     * ***kraken_ghost_4_44_0***: Ejecutar escenarios para la versión 4.44.0 de ghost
 4. Posicionados en la raíz de cada una de las carpetas ejecutar: ***npm install***
+
 5. Ejecutar los escenarios:
-
-<code>Antes de lanzar el comando para correr las pruebas hay que tener en cuenta algunas consideraciones</code>
-
-- Para ambas veriones de ghost cerciorarse que existe por lo menos 1 elemento en:
-    * posts (menú posts)
-    * páginas (menú pages)
-    * diseño (menú design) : Hay que crear un item de navegación y otro de navegación secundaria
-
-    ***Todos se encuentran en el menú vertical lateral izquierdo***
 
 - dentro de las carpetas del ***punto 3*** dirigirse a la ruta  ***features/features***, allí se almacenan los .feature de manera temporal con el fin que no se ejecuten todos en el mismo instante, debido a que se presentan problemas de rendimiento en la máquina y fallan los tests. Teniendo encuenta ese contexto, hay que mover los .feature archivo por archivo a la ruta ***features*** e ir ejecutandolos, lo cual ejecutará todos los escenarios que tenga esa feature, aún de esta manera podrían fallar algunos tests, en este caso toca ejecutar la feature pero escenario a escenario, por ejemplo comentandolos y dejando el que se va a probar.
 
@@ -132,29 +125,29 @@ Después de haberse logueado, se debe navegar en la plataforma para remover el s
 
 Posterior a los 2 puntos anteriores, se procede a [ejectutar la prueba](#ejecutar_escenarios). Los archivos week_XYZ pueden ser ejecutados al tiempo. Lo recomendable es uno a uno.
 
-    - Insumo para pruebas ***VRT***
+<b>Insumo para pruebas ***VRT***</b>
 
-        1. Dirigirse a la ruta  <carpeta_raiz>/reports y allí encontrá unas carpetas con con nombres extraños (hash). Usualmente crea una carpeta por archivo week_XYZ.feature ejecutado, lo cual, haría que la carpeta reports solo tenga 2 subcarpetas.
+1. Dirigirse a la ruta  <carpeta_raiz>/reports y allí encontrá unas carpetas con con nombres extraños (hash). Usualmente crea una carpeta por archivo week_XYZ.feature ejecutado, lo cual, haría que la carpeta reports solo tenga 2 subcarpetas.
 
-        ![image](./img_documentacion/kraken/carpetas_generadas_en_reports.png)
+![image](./img_documentacion/kraken/carpetas_generadas_en_reports.png)
 
-        2. Algunas veces kraken genera unas carpetas que tienen un reporte general (deben ser excluidas o eliminadas) y además las carpetas con los escenarios. Las carpetas que se deben tomar en cuenta para el siguiente paso, deben tener la siguiente estructura interna:
-        
-        ![image](./img_documentacion/kraken/carpetas_escenarios_ejecutados.png)
+2. Algunas veces kraken genera unas carpetas que tienen un reporte general (deben ser excluidas o eliminadas) y además las carpetas con los escenarios. Las carpetas que se deben tomar en cuenta para el siguiente paso, deben tener la siguiente estructura interna:
 
-        Donde cada carpeta subrayada con verde es un escenario que se ejecutó en el archivo week6_XYZ.feature
+![image](./img_documentacion/kraken/carpetas_escenarios_ejecutados.png)
 
-        En caso de algún error al momento de la ejecución de los archivos week_XYZ.feature, se debe devolver a la [consideración 1](#consideracion1) del presente manual.
+Donde cada carpeta subrayada con verde es un escenario que se ejecutó en el archivo week6_XYZ.feature
 
-        ***Solo debe continuar al paso 3 cuando las pruebas sean exitosas***
+En caso de algún error al momento de la ejecución de los archivos week_XYZ.feature, se debe devolver a la [consideración 1](#consideracion1) del presente manual.
 
-        3. Luego de identificar las carpetas que contienen la ejecución de los escenarios, se debe crear una carpeta de nombre ghost_3_41_1 o ghost_4_44_0 de acuerdo a la versión donde se hayan ejecutado las pruebas, estas carpetas serán los datos de entrada para las pruebas ***VRT***.
+***Solo debe continuar al paso 3 cuando las pruebas sean exitosas***
 
-        ![image](./img_documentacion/kraken/carpeta_reporte_consolidado.png)
+3. Luego de identificar las carpetas que contienen la ejecución de los escenarios, se debe crear una carpeta de nombre ghost_3_41_1 o ghost_4_44_0 de acuerdo a la versión donde se hayan ejecutado las pruebas, estas carpetas serán los datos de entrada para las pruebas ***VRT***.
 
-        Dentro de esta deben estar las carpetas generadas de la ejecución de los archivos week6_XYZ.feature (ver paso 4). Es decir, la carpeta ghost_XYZ deberá contener 10 subcarpetas que serían los escenarios ejecutados entre los 2 archivos week6_XYZ.feature, quedando de la siguiente manera:
+![image](./img_documentacion/kraken/carpeta_reporte_consolidado.png)
 
-        ![image](./img_documentacion/kraken/estructura_dentro_ghost.png)
+Dentro de esta deben estar las carpetas generadas de la ejecución de los archivos week6_XYZ.feature (ver paso 4). Es decir, la carpeta ghost_XYZ deberá contener 10 subcarpetas que serían los escenarios ejecutados entre los 2 archivos week6_XYZ.feature, quedando de la siguiente manera:
+
+![image](./img_documentacion/kraken/estructura_dentro_ghost.png)
 
     
 
