@@ -179,7 +179,7 @@ Dentro de esta deben estar las carpetas generadas de la ejecución de los archiv
 
 1. Dirigirse a la sección Wiki del repositorio ( https://github.com/jaromerog12/manual_automated_testing_kraken/wiki )
 	
-2. Visualizar la sección de "Entrega semana 5" y revisar cada item
+2. Visualizar la sección de "Entrega semana 6" y revisar cada item
 	
 ![image](https://github.com/jaromerog12/manual_automated_testing_kraken/assets/123959005/25c02c29-8165-4147-aa41-9687bbae7f75)
 
