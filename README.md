@@ -149,7 +149,7 @@ Dentro de esta deben estar las carpetas generadas de la ejecución de los archiv
 
 ![image](./img_documentacion/kraken/estructura_dentro_ghost.png)
 	
-# Ejecución de la herramienta Resemble JS
+### Ejecución de la herramienta Resemble JS
 	
 1. De acuerdo al paso 3 mencionado anteriormente, mover las carpetas ghost_3_41_1 y ghost_4_44_0 (las cuales deben contener internamente las carpetas con nombres extraños (hash), cada uno con sus archvos .json ) a la ruta resemble/jsonfiles/ 
 	
