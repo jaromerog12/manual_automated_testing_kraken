@@ -53,8 +53,12 @@ When(/^click back list items$/, async function () {
     let element = await this.driver.$(DOMCommonsElements.options.back_list_items);
     return element.click();
 });
+When(/^I click confirm publish item$/, async function () {
+    let element = await this.driver.$(DOMElementsPost.button_confirm_publish);
+    return element.click();
+});
 Then(`I want validate {kraken-string} url`, async function (feature) {
-    chai.assert(this.driver.getUrl, feature);
+    chai.assert.equal(await this.driver.getUrl(), feature);
 });
 Then(/^I should show item in list$/, async  function () {
     let posts = await this.driver.$$(DOMCommonsElements.options.item_title);
@@ -144,7 +148,7 @@ When(/^I want to write in excerpt input$/, async function () {
     return input.setValue(data.excerpt_input);
 });
 When(/^I want close item settings$/, async function () {
-    let input = await this.driver.$(DOMCommonsElements.options.close_item_settings);
+    let input = await this.driver.$(DOMCommonsElements.options.item_settings);
     return input.click();
 });
 Then(/^should excerpt has been modified$/, async function () {
@@ -165,10 +169,11 @@ When(/^I want fill fields$/, async function () {
     data.tag_name = faker.random.words(3);
     await tag_input_name.setValue(data.tag_name);
     let tag_input_slug = await this.driver.$(DOMElementsTags.input_slug);
+    data.tag_slug = faker.internet.domainSuffix();
+    await tag_input_slug.setValue(data.tag_slug);
     let tag_input_description = await this.driver.$(DOMElementsTags.input_description);
     data.tag_description = faker.random.words(10);
     await tag_input_description.setValue(data.tag_description);
-    data.tag_slug = await tag_input_slug.getValue();
 });
 When(/^I want to press save button$/, async function () {
     let tag_save_button = await this.driver.$(DOMElementsTags.button_save);
@@ -176,8 +181,11 @@ When(/^I want to press save button$/, async function () {
 });
 Then(/^I want validate tags in list$/, async  function () {
     let all_tags = await this.driver.$$(DOMElementsTags.slug_in_list_tags);
-    let tags = await Promise.all( all_tags.map(async(tag) => await tag.getText()));
-    let founded  = await equals_items_founded(tags, data.tag_slug);
+    let tags = await Promise.all(all_tags.map(async (tag) => {
+        let url = await tag.getAttribute('href');
+        return url.replace('#/tags/','').replace('/','');
+    }));
+    let founded  = await contains_items_founded(tags, data.tag_slug);
     chai.assert.isTrue(founded.length > 0);
 });
 When(/^I want choose random item tags$/, async function () {
@@ -189,6 +197,8 @@ When(/^I want choose random item tags$/, async function () {
 });
 When(/^I want to press delete button$/, async function () {
     let delete_button = await this.driver.$(DOMElementsTags.button_delete);
+    let slug =  await this.driver.$(DOMElementsTags.input_slug);
+    data.tag_slug = await slug.getValue();
     return delete_button.click();
 });
 When(/^I want to press confirm delete button$/, async function () {
@@ -271,8 +281,8 @@ Then(/^Validate title in home page$/, async  function () {
     data.title_expand_1 = await title.getText();
     chai.assert.equal(await title.getText(), data.title_expand_1);
 });
-When(/^I want expand (.*) menu site meta$/, async function (menu_class) {
-    let input_name_navbar = await this.driver.$(DOMElementsSettings.general.expand_site_meta.replace('####', '' + menu_class));
+When(/^I want expand (.*) menu site meta$/, async function (order_menu) {
+    let input_name_navbar = await this.driver.$(DOMElementsSettings.general.expand_site_meta.replace('####', '' + order_menu));
     return input_name_navbar.click();
 });
 When(/^I fill fields metadata$/, async function () {
