@@ -161,19 +161,28 @@ Posterior a los 2 puntos anteriores, se procede a [ejectutar la prueba](#ejecuta
 
 ### Entrega semana 5
 
+### Instalacion de pupeter
+
 #### Requerimientos
 
 - Se debe contar con la ultima version disponible de node.js para este caso se utilizo la version `18.16.0.`
-- Tener instalado de manera local el CMS ghost, en caso de no contar con una instalacion existente utilice el siguiente [enlace](https://misovirtual.virtual.uniandes.edu.co/codelabs/ghost-local-deployment/index.html#2 "Link")  .
 
-#### Instalacion de pupeter
+- Tener instalado de manera local el CMS ghost, para esto existen dos alternativas:
+	- La primera es realizar una instalacion manual de Ghost segun indica su documentacion, que se encuentra en el siguiente [enlace](https://ghost.org/docs/install/local/ "Link").
+
+	- La segunda es utilizando un contenedor de docker, para poder realizar la instalacion usando un contenedor debe ejecutar el siguiente comando en su terminal
+`docker run -d --name some-ghost -p 2368:2368 -e NODE_ENV=development ghost`
+
+**Nota**: Se recomienda utilizar la segunda opcion, ya que evita la instalacion de mas componentes. Sin embargo para utilizarala debe contar con una instalacion funcionando de docker en su maquina.
+
+#### Guia de ejecucion
 
 1. Clonar el repositorio o hacer un fork al repositorio.
 2. En la terminal de comandos de su preferencia y dirijase donde se encuentra el repositositorio, luego ubiquese en la carpeta **puppeteer**.
 3. Realice la instalacion de los paquetes del proyecto utilizando el comando 
 `npm install ` en la terminal, se recomienda correr este comando con permisos de Administrador.
-4. Al correr ghost crear una cuenta con las credenciales user = 'ca.zuleta@uniandes.edu.co' y password = 'Iloveyou god'
-5. Para ejecutar los test de puppeteer se necesita esta en la carpeta puppeteer/crear-post y ejecutar por consola node index.js con eso correran los test con la UI porque tiene desactivada la opcion de headless.
+4. Durante la instalacion de ghost, se le solicito crear un usuario y contraseña, para la administracion del contenido. Estos datos deben agregarse en el archivo `config.json` que se encuentra en la raiz de la carpeta **puppeter**.
+5. Para ejecutar los test de puppeteer se necesita esta en la carpeta **puppeteer** y ejecutar por consola node index.js con eso correran los test.
 
 #### Instalacion de Kraken
 <pre>Versiones utilizadas:
