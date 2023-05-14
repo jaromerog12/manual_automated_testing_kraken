@@ -15,7 +15,7 @@ class PagesPage{
     }
 
     async abrirPagina() {
-        await this.page.goto('http://localhost:3002/ghost/#/pages');
+        await this.page.goto('http://localhost:3001/ghost/#/pages');
         await new Promise(r => setTimeout(r, 5000));
     }
 
@@ -25,43 +25,30 @@ class PagesPage{
     }
 
     async abrirPaginaNombre(name) {
-        let res = name.replace(/ /g, "-");
-        await this.page.goto('http://localhost:3002/'+ res);
+        await this.page.goto('http://localhost:3001/'+ name.replace(/ /g, '-'));
         await new Promise(r => setTimeout(r, 5000));
     }
 
     async nuevoPage() {
-        await this.page.click('a[class="ember-view gh-btn gh-btn-primary view-actions-top-row"]');
+        await this.page.click('a[class="ember-view gh-btn gh-btn-green"]');
         await new Promise(r => setTimeout(r, 10000));
     }
 
     async publicarPage()
     {
-        await this.page.click('[class="gh-publishmenu ember-view"]');
+        await this.page.click('header > section > div > div.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger');
         await new Promise(r => setTimeout(r, 10000));
     }
 
     async abrirSideMenu()
     {
-        await this.page.click('body > div.gh-app > div > main > button');
-        await new Promise(r => setTimeout(r, 10000));
-    }
-
-    async abrirFiltroAutores()
-    {
-        await this.page.click('div.gh-app > div > main > section > div > header > section > div > div.gh-contentfilter-menu.gh-contentfilter-author');
-        await new Promise(r => setTimeout(r, 10000));
-    }
-
-    async seleccionarFiltroAutores()
-    {
-        await this.page.click('#ember-basic-dropdown-wormhole > div > ul > li:nth-child(2)');
+        await this.page.click('header > section > button');
         await new Promise(r => setTimeout(r, 10000));
     }
 
     async abrirFiltroEstado()
     {
-        await this.page.click('div.gh-app > div > main > section > div > header > section > div > div.gh-contentfilter-menu.gh-contentfilter-type');
+        await this.page.click('div[class="ember-view ember-basic-dropdown-trigger  ember-power-select-trigger gh-contentfilter-menu-trigger"]');
         await new Promise(r => setTimeout(r, 10000));
     }
 
@@ -91,7 +78,7 @@ class PagesPage{
 
     async continuarPublicacion()
     {
-        await this.page.click('button[class="gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view"]');
+        await this.page.click('button[class="gh-btn gh-btn-blue gh-publishmenu-button gh-btn-icon ember-view"]');
         await new Promise(r => setTimeout(r, 10000));
     }
 

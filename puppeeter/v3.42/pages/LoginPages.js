@@ -10,7 +10,7 @@ class LoginPage{
     }
 
     async abrirPagina() {
-        await this.page.goto('http://localhost:3002/ghost/#/signin');
+        await this.page.goto('http://localhost:3001/ghost/#/signin');
         await new Promise(r => setTimeout(r, 5000));
     }
 
@@ -22,7 +22,8 @@ class LoginPage{
 
     async autenticar()
     {
-        await this.page.click('button[class="login gh-btn gh-btn-login gh-btn-block gh-btn-icon js-login-button ember-view"]');
+        await this.page.click('button[class="login gh-btn gh-btn-blue gh-btn-block gh-btn-icon ember-view"]');
+        await new Promise(r => setTimeout(r, 5000));
     }
 
     async tomarImagen(name){

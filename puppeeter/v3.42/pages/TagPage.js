@@ -12,13 +12,13 @@ class TagPage{
     }
 
     async abrirPagina() {
-        await this.page.goto('http://localhost:3002/ghost/#/tags');
+        await this.page.goto('http://localhost:3001/ghost/#/tags');
         await new Promise(r => setTimeout(r, 5000));
     }
 
     async abrirPaginaTag(name) {
-        let res = name.replace(/ /g, "-");
-        await this.page.goto('http://localhost:3002/ghost/#/tags/' + res);
+        console.log(name.replace(/ /g, '-'))
+        await this.page.goto('http://localhost:3001/ghost/#/tags/' + name.replace(/ /g, '-'));
         await new Promise(r => setTimeout(r, 5000));
     }
 
@@ -27,7 +27,7 @@ class TagPage{
     }
 
     async nuevoTag() {
-        await this.page.click('a[class="ember-view gh-btn gh-btn-primary"]');
+        await this.page.click('a[class="ember-view gh-btn gh-btn-green"]');
         await new Promise(r => setTimeout(r, 10000));
     }
 
@@ -42,13 +42,13 @@ class TagPage{
 
     async guardarTag()
     {
-        await this.page.click('div.gh-canvas-header > header > section > button');
+        await this.page.click('div > main > section > form > header > section > button');
         await new Promise(r => setTimeout(r, 5000));
     }
 
     async eliminarTag()
     {
-        await this.page.click('button[class="gh-btn gh-btn-red gh-btn-icon"]');
+        await this.page.click('button[class="gh-btn gh-btn-red gh-btn-icon mb15"]');
         await new Promise(r => setTimeout(r, 5000));
     }
 

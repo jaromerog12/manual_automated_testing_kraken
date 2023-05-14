@@ -1,0 +1,9 @@
+{
+    "parameters":{
+        "login":{
+            "user":"leonardo@gmail.com",
+            "password":"Febrero.2023"
+        },
+    "folder": "./evidencias"
+    }
+}

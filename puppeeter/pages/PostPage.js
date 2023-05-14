@@ -17,12 +17,12 @@ class PostPage
     }
 
     async abrirPagina() {
-        await this.page.goto('http://localhost:2368/ghost/#/posts');
+        await this.page.goto('http://localhost:3002/ghost/#/posts');
         await new Promise(r => setTimeout(r, 5000));
     }
 
     async nuevoPost() {
-        await this.page.click('a[class="ember-view gh-btn gh-btn-primary"]');
+        await this.page.click('a[class="ember-view gh-btn gh-btn-primary view-actions-top-row"]');
         await new Promise(r => setTimeout(r, 10000));
     }
 
@@ -34,13 +34,13 @@ class PostPage
 
     async eliminarPost()
     {
-        await this.page.click('#entry-controls > div > div.settings-menu-content > div > button');
+        await this.page.click('#entry-controls > div > div.settings-menu-content > form > button');
         await new Promise(r => setTimeout(r, 10000));
     }
 
     async confirmarEliminarPost()
     {
-        await this.page.click('div.modal-footer > button.gh-btn.gh-btn-red.gh-btn-icon.ember-view');
+        await this.page.click('button[class="gh-btn gh-btn-red gh-btn-icon ember-view"]');
         await new Promise(r => setTimeout(r, 10000));
     }
 
@@ -56,25 +56,25 @@ class PostPage
 
     async publicarPost()
     {
-        await this.page.click('button.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger');
+        await this.page.click('[class="gh-publishmenu ember-view"]');
         await new Promise(r => setTimeout(r, 10000));
     }
 
     async continuarPublicacion()
     {
-        await this.page.click('div.gh-publish-cta > button');
+        await this.page.click('button[class="gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view"]');
         await new Promise(r => setTimeout(r, 10000));
     }
 
     async publicarAhoraPost()
     {
-        await this.page.click('button.gh-btn.gh-btn-large.gh-btn-pulse.ember-view');
+        await this.page.click('button[class="gh-btn gh-btn-black gh-btn-icon ember-view"]');
         await new Promise(r => setTimeout(r, 10000));
     }
 
     async abrirPaginaNombre(name) {
         let res = name.replace(/ /g, "-");
-        await this.page.goto('http://localhost:2368/'+ res);
+        await this.page.goto('http://localhost:3002/'+ res);
         await new Promise(r => setTimeout(r, 5000));
     }
 

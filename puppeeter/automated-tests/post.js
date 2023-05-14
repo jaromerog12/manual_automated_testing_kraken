@@ -22,9 +22,8 @@ const Escenario16 = async () => {
     await postObj.publicarPost();
     await postObj.tomarImagen("4.confirmacion_publicacion");
     await postObj.continuarPublicacion();
-    await postObj.tomarImagen("5.continuar_publicacion");
     await postObj.publicarAhoraPost();
-    await postObj.tomarImagen("6.publicacion");
+    await postObj.tomarImagen("5.continuar_publicacion");
     await postObj.abrirPagina();
     await postObj.tomarImagen("7.verificar");
     await postObj.abrirPaginaNombre(pagePath[1]);
@@ -52,8 +51,6 @@ const Escenario17 = async () => {
     await postObj.tomarImagen("4.confirmacion_publicacion");
     await postObj.continuarPublicacion();
     await postObj.tomarImagen("5.continuar_publicacion");
-    await postObj.publicarAhoraPost();
-    await postObj.tomarImagen("6.publicacion");
     await postObj.abrirPagina();
     await postObj.tomarImagen("7.verificar");
     await postObj.abrirPaginaNombre(postPath[1]);
@@ -62,7 +59,9 @@ const Escenario17 = async () => {
     await postObj.llenarFormulario();
     await postObj.tomarImagen("9.post_editada");
 
-    await postObj.updatePublicarPost();
+    await postObj.publicarPost();
+    await postObj.continuarPublicacion();
+    await postObj.publicarAhoraPost();
     await postObj.tomarImagen("10.confirmacion_publicacion");
     await postObj.abrirPagina();
     await postObj.tomarImagen("11.verificar");
@@ -90,9 +89,8 @@ const Escenario18 = async () => {
     await postObj.publicarPost();
     await postObj.tomarImagen("4.confirmacion_publicacion");
     await postObj.continuarPublicacion();
-    await postObj.tomarImagen("5.continuar_publicacion");
     await postObj.publicarAhoraPost();
-    await postObj.tomarImagen("6.publicacion");
+    await postObj.tomarImagen("5.continuar_publicacion");
     await postObj.abrirPagina();
     await postObj.tomarImagen("7.verificar");
     await postObj.abrirPaginaNombre(postPath[1]);

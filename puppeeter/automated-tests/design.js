@@ -22,7 +22,6 @@ const Escenario10 = async () => {
     const pagePath = await pageObj.llenarFormulario();
     await pageObj.publicarPage();
     await pageObj.continuarPublicacion();
-    await pageObj.publicarAhoraPage();
 
     await design.abrirPagina()
     await design.tomarImagen("2.nav_bars");
@@ -57,7 +56,6 @@ const Escenario11 = async () => {
     const pagePath = await pageObj.llenarFormulario();
     await pageObj.publicarPage();
     await pageObj.continuarPublicacion();
-    await pageObj.publicarAhoraPage();
 
     await design.abrirPagina()
     await design.tomarImagen("2.nav_bars");
@@ -92,7 +90,6 @@ const Escenario12 = async () => {
     const pagePath = await pageObj.llenarFormulario();
     await pageObj.publicarPage();
     await pageObj.continuarPublicacion();
-    await pageObj.publicarAhoraPage();
 
     await design.abrirPagina()
     await design.tomarImagen("2.nav_bars");
@@ -127,7 +124,6 @@ const Escenario13 = async () => {
     const pagePath = await pageObj.llenarFormulario();
     await pageObj.publicarPage();
     await pageObj.continuarPublicacion();
-    await pageObj.publicarAhoraPage();
 
     await design.abrirPagina()
     await design.tomarImagen("2.nav_bars");

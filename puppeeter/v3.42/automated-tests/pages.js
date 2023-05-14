@@ -2,9 +2,9 @@ const LoginPage = require('../pages/LoginPages');
 const PagesPage = require('../pages/PagesPage');
 const puppeteer = require('puppeteer');
 
-const Escenario5 = async () => {
+const Escenario7 = async () => {
     const browser = await puppeteer.launch();
-    const escenario = "Escenario5";
+    const escenario = "Escenario7";
     const page = await browser.newPage();
     const promises = [];
     promises.push(page.waitForNavigation());
@@ -29,9 +29,9 @@ const Escenario5 = async () => {
     await pageObj.tomarImagen("7.pagina_publicada");
 }
 
-const Escenario6 = async () => {
+const Escenario8 = async () => {
     const browser = await puppeteer.launch();
-    const escenario = "Escenario6";
+    const escenario = "Escenario8";
     const page = await browser.newPage();
     const promises = [];
     promises.push(page.waitForNavigation());
@@ -44,7 +44,7 @@ const Escenario6 = async () => {
     await pageObj.abrirPagina();
     await pageObj.tomarImagen("2.paginas");
     await pageObj.nuevoPage();
-    let pagePath = await pageObj.llenarFormulario();
+    const pagePath = await pageObj.llenarFormulario();
     await pageObj.tomarImagen("3.pagina_creada");
     await pageObj.publicarPage();
     await pageObj.tomarImagen("4.confirmacion_publicacion");
@@ -67,9 +67,9 @@ const Escenario6 = async () => {
     await pageObj.tomarImagen("11.pagina_publicada");
 }
 
-const Escenario7 = async () => {
+const Escenario9 = async () => {
     const browser = await puppeteer.launch();
-    const escenario = "Escenario7";
+    const escenario = "Escenario9";
     const page = await browser.newPage();
     const promises = [];
     promises.push(page.waitForNavigation());
@@ -106,29 +106,9 @@ const Escenario7 = async () => {
     await pageObj.tomarImagen("12.pagina_eliminada");
 }
 
-const Escenario8 = async () => {
+const Escenario10 = async () => {
     const browser = await puppeteer.launch();
-    const escenario = "Escenario8";
-    const page = await browser.newPage();
-    const promises = [];
-    promises.push(page.waitForNavigation());
-    const pageObj = new PagesPage(page, escenario);
-    const login = new LoginPage(page, escenario);
-    await login.abrirPagina();
-    await login.ingresarCredenciales();
-    await login.tomarImagen("1.autenticacion");
-    await login.autenticar();
-    await pageObj.abrirPagina();
-    await pageObj.tomarImagen("2.paginas");
-    await pageObj.abrirFiltroAutores();
-    await pageObj.tomarImagen("3.filtro");
-    await pageObj.seleccionarFiltroAutores();
-    await pageObj.tomarImagen("4.filtrado");
-}
-
-const Escenario9 = async () => {
-    const browser = await puppeteer.launch();
-    const escenario = "Escenario9";
+    const escenario = "Escenario10";
     const page = await browser.newPage();
     const promises = [];
     promises.push(page.waitForNavigation());
@@ -146,4 +126,4 @@ const Escenario9 = async () => {
     await pageObj.tomarImagen("4.filtrado");
 }
 
-module.exports = {Escenario5, Escenario6, Escenario7, Escenario8, Escenario9}
+module.exports = {Escenario7, Escenario8, Escenario9, Escenario10}

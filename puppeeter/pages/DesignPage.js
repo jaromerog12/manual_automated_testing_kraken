@@ -10,12 +10,12 @@ class DesignPage {
     }
 
     async abrirPagina() {
-        await this.page.goto('http://localhost:2368/ghost/#/settings/navigation');
+        await this.page.goto('http://localhost:3002/ghost/#/settings/navigation');
         await new Promise(r => setTimeout(r, 5000));
     }
 
     async abrirPrincipal() {
-        await this.page.goto('http://localhost:2368');
+        await this.page.goto('http://localhost:3002');
         await new Promise(r => setTimeout(r, 5000));
     }
 
