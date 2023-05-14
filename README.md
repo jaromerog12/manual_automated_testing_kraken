@@ -7,7 +7,7 @@
 
 ### Entrega semana 6
 
-Impacto de la ejecución de los escenarios de pruebas de ***kraken*** en la nueva versión de ghost 4.44.0
+Impacto de la ejecución de los escenarios de pruebas de ***kraken*** en la nueva versión de ghost 4.44.0 y ***pupeteer*** para la versión 3.41.1 debido a que la entrega pasada se presentó con una versión superior a la 4.44.0
 
 
 |Features afectadas|Funcionalidad|escenarios afectados|
@@ -286,7 +286,7 @@ Para que los archivos puedan ser ejecutados se deben reubicar los .feature en el
 - En algunas ocasiones también sucede que si se ejecutan todos los escenarios de una feature, el test falla. Para este caso toca ejecutar escenario a escenario
 </pre>
 
-#### Funcionalidades y Escenarios de pruebás
+#### Funcionalidades y Escenarios de pruebas, estos son utilizados para ambas herramientas ***kraken y pupeteer***
 
 |  Funcionalidad | Nombre escenarios de pruebas    | Descripcion escenarios de pruebas                                                                                                      |
 | ------------ |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
