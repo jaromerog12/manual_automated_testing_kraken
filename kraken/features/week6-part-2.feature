@@ -1,7 +1,7 @@
 Feature: week6
 
   @user3 @web
-  Scenario: step-4 | Delete tag
+  Scenario: step-4  Delete tag
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 2 seconds
@@ -21,7 +21,7 @@ Feature: week6
     And I wait for 2 seconds
 
   @user4 @web
-  Scenario: step-4 | Show only pages by status and author
+  Scenario: step-4  Show only pages by status and author
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 3 seconds
@@ -47,7 +47,7 @@ Feature: week6
     And I wait for 2 seconds
 
   @user8 @web
-  Scenario: step-8 | update metadata
+  Scenario: step-8  update metadata
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 2 seconds
@@ -67,7 +67,7 @@ Feature: week6
     And I wait for 2 seconds
 
   @user9 @web
-  Scenario: step-9 | update title
+  Scenario: step-9  update title
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 2 seconds
@@ -89,7 +89,7 @@ Feature: week6
     And I wait for 2 seconds
 
   @user10 @web
-  Scenario: step-10 | update Twitter
+  Scenario: step-10  update Twitter
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 2 seconds

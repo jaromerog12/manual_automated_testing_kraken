@@ -1,7 +1,7 @@
 Feature: week6
 
   @user1 @web
-  Scenario: step-1 | Create new post with draft status
+  Scenario: step-1  Create new post with draft status
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 3 seconds
@@ -27,7 +27,7 @@ Feature: week6
     And I wait for 2 seconds
 
   @user2 @web
-  Scenario: step-2 | Create new tag
+  Scenario: step-2  Create new tag
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 2 seconds
@@ -49,7 +49,7 @@ Feature: week6
     And I wait for 2 seconds
 
   @user5 @web
-  Scenario: step-5 | Show only page by status
+  Scenario: step-5  Show only page by status
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 3 seconds
@@ -69,7 +69,7 @@ Feature: week6
     And I wait for 2 seconds
 
   @user6 @web
-  Scenario: step-6 | Show only posts by status and author
+  Scenario: step-6  Show only posts by status and author
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 3 seconds
@@ -95,7 +95,7 @@ Feature: week6
     And I wait for 2 seconds
 
   @user7 @web
-  Scenario: step-7 | update facebook
+  Scenario: step-7  update facebook
     Given I navigate to page "<SIGN_IN_PAGE>"
     When I enter email "<USERNAME>"
     And I wait for 2 seconds
