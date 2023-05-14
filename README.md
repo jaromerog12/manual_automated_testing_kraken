@@ -148,10 +148,45 @@ En caso de algún error al momento de la ejecución de los archivos week_XYZ.fea
 Dentro de esta deben estar las carpetas generadas de la ejecución de los archivos week6_XYZ.feature (ver paso 4). Es decir, la carpeta ghost_XYZ deberá contener 10 subcarpetas que serían los escenarios ejecutados entre los 2 archivos week6_XYZ.feature, quedando de la siguiente manera:
 
 ![image](./img_documentacion/kraken/estructura_dentro_ghost.png)
+	
+# Ejecución de la herramienta Resemble JS
+	
+1. De acuerdo al paso 3 mencionado anteriormente, mover las carpetas ghost_3_41_1 y ghost_4_44_0 (las cuales deben contener internamente las carpetas con nombres extraños (hash), cada uno con sus archvos .json ) a la ruta resemble/jsonfiles/ 
+	
+![image](https://github.com/jaromerog12/manual_automated_testing_kraken/assets/123959005/09e08767-f366-4604-839a-fb29f2309f7e)
 
-### Entrega semana 5
+2. validar que la carpeta /resemble/results/ ese vacia, de no ser asi eliminar todo lo que este adentro
+	
+![image](https://github.com/jaromerog12/manual_automated_testing_kraken/assets/123959005/974b62b2-801a-450d-be14-4c917f3e3b98)
+
+3. Ubicados en la carpeta Resemble, ejecutamos los comandos npm install (en caso de no instalar las depedencias correctamente, ejecutar el comando npm install playwright y npm install resemblejs) 
+
+![image](https://github.com/jaromerog12/manual_automated_testing_kraken/assets/123959005/f7605d24-1ae0-4fc1-a94b-7b33827aa5ad)
+
+4. ejecutamos el comando node index.js desde la carpeta resemble
+	
+![image](https://github.com/jaromerog12/manual_automated_testing_kraken/assets/123959005/f054cf48-3a36-434c-9ee1-57b5049a7cfb)
+
+5. Una vez terminado el proceso, vamos a la carpeta result dentro de la carpeta resemble e internamente abrimos el nombre de la carpeta nombrada con la fecha actual.
+	
+![image](https://github.com/jaromerog12/manual_automated_testing_kraken/assets/123959005/41c45530-6886-4a26-bb1d-5bbaf6033bf6)
+
+6. Internamente dentro de la carpeta mencionada en el paso 5, abrimos el archivo report.html en un navegador y evaluamos el resultado
+	
+![image](https://github.com/jaromerog12/manual_automated_testing_kraken/assets/123959005/32ff3770-3412-441a-80af-7b215f71db70)
+
+### Reporte entrega semana 6
+
+1. Dirigirse a la sección Wiki del repositorio ( https://github.com/jaromerog12/manual_automated_testing_kraken/wiki )
+	
+2. Visualizar la sección de "Entrega semana 5" y revisar cada item
+	
+![image](https://github.com/jaromerog12/manual_automated_testing_kraken/assets/123959005/25c02c29-8165-4147-aa41-9687bbae7f75)
+
+# Entrega semana 5
 
 ### Instalacion de pupeter
+
 
 #### Requerimientos
 
