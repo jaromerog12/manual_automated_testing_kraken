@@ -18,7 +18,7 @@ async function executeTest() {
     }
 
     const jsonBefore = getJsonInfo('./jsonfiles/ghost_3_41_1');
-    const jsonAfter = getJsonInfo('./jsonfiles/ghost_4_44_4');
+    const jsonAfter = getJsonInfo('./jsonfiles/ghost_4_44_0');
 
     casesArray = await getCasesArray(jsonBefore);
     console.log('casesArray',casesArray.length);
@@ -78,10 +78,16 @@ function getJsonInfo(mainPath) {
     });
 
     const json = files.map(filePath => {
-        console.log(filePath);
-
-        const fileContent = fs.readFileSync(`${filePath}`, 'utf-8');
-        return JSON.parse(fileContent);
+        let fileContent;
+        try {
+            fileContent = fs.readFileSync(`${filePath}`, 'utf-8');
+            return JSON.parse(fileContent.replace(/\s+/g, ''));
+        } catch(error){
+            console.log(error);
+            return undefined;
+        }
+    }).filter(jsonFormat => {
+        return jsonFormat !== undefined
     });
     return json;
 }
