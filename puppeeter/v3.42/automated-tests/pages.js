@@ -3,6 +3,7 @@ const PagesPage = require('../pages/PagesPage');
 const puppeteer = require('puppeteer');
 
 const Escenario7 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario7";
     const page = await browser.newPage();
@@ -10,6 +11,7 @@ const Escenario7 = async () => {
     promises.push(page.waitForNavigation());
     const pageObj = new PagesPage(page, escenario);
     const login = new LoginPage(page, escenario);
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -25,11 +27,14 @@ const Escenario7 = async () => {
     await pageObj.tomarImagen("5.continuar_publicacion");
     await pageObj.abrirPagina();
     await pageObj.tomarImagen("6.verificar");
+    ///Then
     await pageObj.abrirPaginaNombre(pagePath[1]);
     await pageObj.tomarImagen("7.pagina_publicada");
+    return;
 }
 
 const Escenario8 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario8";
     const page = await browser.newPage();
@@ -37,6 +42,7 @@ const Escenario8 = async () => {
     promises.push(page.waitForNavigation());
     const pageObj = new PagesPage(page, escenario);
     const login = new LoginPage(page, escenario);
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -62,12 +68,15 @@ const Escenario8 = async () => {
     await pageObj.continuarPublicacion();
     await pageObj.tomarImagen("9.confirmacion_publicacion");
     await pageObj.abrirPagina();
+    ///Then
     await pageObj.tomarImagen("10.verificar");
     await pageObj.abrirPaginaNombre(pagePath[1]);
     await pageObj.tomarImagen("11.pagina_publicada");
+    return;
 }
 
 const Escenario9 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario9";
     const page = await browser.newPage();
@@ -75,6 +84,7 @@ const Escenario9 = async () => {
     promises.push(page.waitForNavigation());
     const pageObj = new PagesPage(page, escenario);
     const login = new LoginPage(page, escenario);
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -99,11 +109,12 @@ const Escenario9 = async () => {
     await pageObj.tomarImagen("9.confirmar_eliminar");
     await pageObj.confirmarEliminarPage();
     await pageObj.tomarImagen("10.paginaEliminada");
-
+    ///Then
     await pageObj.abrirPagina();
     await pageObj.tomarImagen("11.verificar");
     await pageObj.abrirPaginaNombre(pagePath[1]);
     await pageObj.tomarImagen("12.pagina_eliminada");
+    return;
 }
 
 const Escenario10 = async () => {

@@ -3,6 +3,7 @@ const LoginPage = require('../pages/LoginPages');
 const puppeteer = require('puppeteer');
 
 const Escenario3 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario3";
     const page = await browser.newPage();
@@ -10,6 +11,7 @@ const Escenario3 = async () => {
     promises.push(page.waitForNavigation());
     const tag = new TagPage(page, escenario);
     const login = new LoginPage(page, escenario);
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -22,11 +24,14 @@ const Escenario3 = async () => {
     await tag.tomarImagen("4.llenar_tag");
     await tag.guardarTag();
     await tag.abrirPagina();
+    ///Then
     await tag.tomarImagen("5.tags_confirmacin");
+    return;
 
 }
 
 const Escenario4 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario4";
     const page = await browser.newPage();
@@ -34,6 +39,7 @@ const Escenario4 = async () => {
     promises.push(page.waitForNavigation());
     const tag = new TagPage(page, escenario);
     const login = new LoginPage(page, escenario);
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -51,7 +57,9 @@ const Escenario4 = async () => {
     await tag.eliminarTag();
     await tag.tomarImagen("7.confirmacion_eliminacion");
     await tag.confirmarEliminarTag();
+    ///Then
     await tag.tomarImagen("8.eliminado");
+    return;
 };
 
 module.exports = { Escenario3, Escenario4 };

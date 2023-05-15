@@ -3,6 +3,7 @@ const LoginPage = require('../pages/LoginPages');
 const puppeteer = require('puppeteer');
 
 const Escenario1 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario1";
     const page = await browser.newPage();
@@ -10,6 +11,8 @@ const Escenario1 = async () => {
     promises.push(page.waitForNavigation());
     const login = new LoginPage(page, escenario);
     const general = new GeneralPage(page, escenario)
+
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -22,18 +25,23 @@ const Escenario1 = async () => {
     await general.guardar();
     await general.abrirPagina();
     await general.abrirDesplegableTitulo();
+
+    ///Then
     await general.tomarImagen("4.confirmacion");
     return;
 }
 
 const Escenario2 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario2";
     const page = await browser.newPage();
     const promises = [];
     promises.push(page.waitForNavigation());
     const login = new LoginPage(page, escenario);
-    const general = new GeneralPage(page, escenario)
+    const general = new GeneralPage(page, escenario);
+
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -46,18 +54,23 @@ const Escenario2 = async () => {
     await general.guardar();
     await general.abrirPagina();
     await general.abrirDesplegableMeta();
+
+    ///Then
     await general.tomarImagen("4.confirmacion");
     return;
 }
 
 const Escenario14 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario14";
     const page = await browser.newPage();
     const promises = [];
     promises.push(page.waitForNavigation());
     const login = new LoginPage(page, escenario);
-    const general = new GeneralPage(page, escenario)
+    const general = new GeneralPage(page, escenario);
+
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -70,18 +83,23 @@ const Escenario14 = async () => {
     await general.guardar();
     await general.abrirPagina();
     await general.abrirDesplegableTwitter();
+
+    ///Then
     await general.tomarImagen("4.confirmacion");
     return;
 }
 
 const Escenario15 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario15";
     const page = await browser.newPage();
     const promises = [];
     promises.push(page.waitForNavigation());
     const login = new LoginPage(page, escenario);
-    const general = new GeneralPage(page, escenario)
+    const general = new GeneralPage(page, escenario);
+
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -94,6 +112,8 @@ const Escenario15 = async () => {
     await general.guardar();
     await general.abrirPagina();
     await general.abrirDesplegableFacebook();
+
+    ///Then
     await general.tomarImagen("4.confirmacion");
     return;
 }
