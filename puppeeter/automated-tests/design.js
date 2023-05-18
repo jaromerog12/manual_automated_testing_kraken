@@ -4,6 +4,8 @@ const puppeteer = require('puppeteer');
 const PagesPage = require('../pages/PagesPage');
 
 const Escenario10 = async () => {
+    
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario10";
     const page = await browser.newPage();
@@ -12,6 +14,9 @@ const Escenario10 = async () => {
     const login = new LoginPage(page, escenario);
     const design = new DesignPage(page, escenario)
     const pageObj = new PagesPage(page, escenario);
+
+
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -31,13 +36,14 @@ const Escenario10 = async () => {
 
     await design.guardarCambios();
     await design.abrirPrincipal();
-
+    ///Then
     await design.tomarImagen("4.principal");
 
     return;
 }
 
 const Escenario11 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario11";
     const page = await browser.newPage();
@@ -46,6 +52,8 @@ const Escenario11 = async () => {
     const login = new LoginPage(page, escenario);
     const design = new DesignPage(page, escenario)
     const pageObj = new PagesPage(page, escenario);
+
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -65,13 +73,14 @@ const Escenario11 = async () => {
 
     await design.guardarCambios();
     await design.abrirPrincipal();
-
+    ///Then
     await design.tomarImagen("4.principal");
 
     return;
 }
 
 const Escenario12 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario12";
     const page = await browser.newPage();
@@ -80,6 +89,8 @@ const Escenario12 = async () => {
     const login = new LoginPage(page, escenario);
     const design = new DesignPage(page, escenario)
     const pageObj = new PagesPage(page, escenario);
+
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -99,13 +110,16 @@ const Escenario12 = async () => {
 
     await design.guardarCambios();
     await design.abrirPrincipal();
-
+    ///Then
     await design.tomarImagen("4.principal");
 
+   
     return;
 }
 
 const Escenario13 = async () => {
+
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario13";
     const page = await browser.newPage();
@@ -114,6 +128,8 @@ const Escenario13 = async () => {
     const login = new LoginPage(page, escenario);
     const design = new DesignPage(page, escenario)
     const pageObj = new PagesPage(page, escenario);
+
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -133,7 +149,7 @@ const Escenario13 = async () => {
 
     await design.guardarCambios();
     await design.abrirPrincipal();
-
+    ///Then
     await design.tomarImagen("4.principal");
 
     return;

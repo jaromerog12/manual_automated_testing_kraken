@@ -5,7 +5,7 @@
 * Leonardo Bustamante
 * Kevin Maldonado
 
-### Entrega semana 6
+# Entrega semana 6
 
 Impacto de la ejecución de los escenarios de pruebas de ***kraken*** en la nueva versión de ghost 4.44.0 y ***pupeteer*** para la versión 3.41.1 debido a que la entrega pasada se presentó con una versión superior a la 4.44.0
 
@@ -183,14 +183,38 @@ Dentro de esta deben estar las carpetas generadas de la ejecución de los archiv
 	
 ![image](https://github.com/jaromerog12/manual_automated_testing_kraken/assets/123959005/25c02c29-8165-4147-aa41-9687bbae7f75)
 
+***Nota***: En este vinculo encontrara toda la documentacion, el video, junto con informacion relevante acerca de las herramientas.
+
+### Puppeter
+
+Los 10 escenarios seleccionados para la ejecutar puppeter en version `3.41.1` son
+
+|#|Feature|Scenario|
+| :-: | :-: | :-: |
+|1|General|update facebook|
+|2|General|update metadata|
+|3|General|update title|
+|4|General|update Twitter|
+|5|Page|Show only page by status|
+|6|Page|Delete page|
+|7|Page|Create page|
+|8|Page|Edit page|
+|9|Tag|Create new tag|
+|10|Tag|Delete tag|
+
+### Instalacion de pupeter
+
+La instalacion es la misma que la indicada en la semana 5, sin embargo tiene dos cambios:
+- Se debe contar con la ultima version disponible de node.js para este caso se utilizo la version `18.16.0.`, Para realizar esta instalacion se recomienda utilizar las intrucciones para lanzar el contenedor de esta version en la parte de arriba, seccion Ghost v 3.41.1
+
+- Ahora debe ubicarse en la ubciacion `puppeeter/v3.42` para correr el comando `node index.js` en la terminal
+
 # Entrega semana 5
 
 ### Instalacion de pupeter
 
 
 #### Requerimientos
-
-- Se debe contar con la ultima version disponible de node.js para este caso se utilizo la version `18.16.0.`
 
 - Tener instalado de manera local el CMS ghost, para esto existen dos alternativas:
 	- La primera es realizar una instalacion manual de Ghost segun indica su documentacion, que se encuentra en el siguiente [enlace](https://ghost.org/docs/install/local/ "Link").
@@ -207,7 +231,7 @@ Dentro de esta deben estar las carpetas generadas de la ejecución de los archiv
 3. Realice la instalacion de los paquetes del proyecto utilizando el comando 
 `npm install ` en la terminal, se recomienda correr este comando con permisos de Administrador.
 4. Durante la instalacion de ghost, se le solicito crear un usuario y contraseña, para la administracion del contenido. Estos datos deben agregarse en el archivo `config.json` que se encuentra en la raiz de la carpeta **puppeter**.
-5. Para ejecutar los test de puppeteer se necesita estar en la carpeta **puppeteer** y ejecutar por consola node index.js con eso correran los test.
+5. Para ejecutar los test de puppeteer se necesita estar en la carpeta **puppeteer** y ejecutar por consola `node index.js` con eso correran los test.
 
 #### Instalacion de Kraken
 <pre>Versiones utilizadas:

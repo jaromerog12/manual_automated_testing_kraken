@@ -3,6 +3,7 @@ const PostPage = require('../pages/PostPage');
 const puppeteer = require('puppeteer');
 
 const Escenario16 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario16";
     const page = await browser.newPage();
@@ -10,6 +11,7 @@ const Escenario16 = async () => {
     promises.push(page.waitForNavigation());
     const postObj = new PostPage(page, escenario);
     const login = new LoginPage(page, escenario);
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -24,13 +26,16 @@ const Escenario16 = async () => {
     await postObj.continuarPublicacion();
     await postObj.publicarAhoraPost();
     await postObj.tomarImagen("5.continuar_publicacion");
+    ///Then
     await postObj.abrirPagina();
     await postObj.tomarImagen("7.verificar");
     await postObj.abrirPaginaNombre(pagePath[1]);
     await postObj.tomarImagen("8.pagina_publicada");
+    return;
 }
 
 const Escenario17 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario17";
     const page = await browser.newPage();
@@ -38,6 +43,7 @@ const Escenario17 = async () => {
     promises.push(page.waitForNavigation());
     const postObj = new PostPage(page, escenario);
     const login = new LoginPage(page, escenario);
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -64,12 +70,15 @@ const Escenario17 = async () => {
     await postObj.publicarAhoraPost();
     await postObj.tomarImagen("10.confirmacion_publicacion");
     await postObj.abrirPagina();
+    ///Then
     await postObj.tomarImagen("11.verificar");
     await postObj.abrirPaginaNombre(postPath[1]);
     await postObj.tomarImagen("12.post_publicada");
+    return;
 }
 
 const Escenario18 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario18";
     const page = await browser.newPage();
@@ -77,6 +86,8 @@ const Escenario18 = async () => {
     promises.push(page.waitForNavigation());
     const postObj = new PostPage(page, escenario);
     const login = new LoginPage(page, escenario);
+
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -102,14 +113,16 @@ const Escenario18 = async () => {
     await postObj.tomarImagen("10.confirmar_eliminar");
     await postObj.confirmarEliminarPost();
     await postObj.tomarImagen("11.postEliminada");
-
+    ///Then
     await postObj.abrirPagina();
     await postObj.tomarImagen("12.verificar");
     await postObj.abrirPaginaNombre(postPath[1]);
     await postObj.tomarImagen("13.pagina_eliminada");
+    return;
 }
 
 const Escenario19 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario19";
     const page = await browser.newPage();
@@ -117,6 +130,7 @@ const Escenario19 = async () => {
     promises.push(page.waitForNavigation());
     const postObj = new PostPage(page, escenario);
     const login = new LoginPage(page, escenario);
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -126,11 +140,14 @@ const Escenario19 = async () => {
     await postObj.nuevoPost();
     const pagePath = await postObj.llenarFormulario();
     await postObj.tomarImagen("3.pagina_creada");
+    ///Then
     await postObj.abrirPagina();
     await postObj.tomarImagen("4.verificar");
+    return;
 }
 
 const Escenario20 = async () => {
+    ///Given
     const browser = await puppeteer.launch();
     const escenario = "Escenario20";
     const page = await browser.newPage();
@@ -138,6 +155,7 @@ const Escenario20 = async () => {
     promises.push(page.waitForNavigation());
     const postObj = new PostPage(page, escenario);
     const login = new LoginPage(page, escenario);
+    ///When
     await login.abrirPagina();
     await login.ingresarCredenciales();
     await login.tomarImagen("1.autenticacion");
@@ -146,7 +164,9 @@ const Escenario20 = async () => {
     await postObj.abrirFiltroEstado();
     await postObj.tomarImagen("3.filtro");
     await postObj.seleccionarFiltroEstado();
+    ///Then
     await postObj.tomarImagen("4.filtrado");
+    return;
 }
 
 
