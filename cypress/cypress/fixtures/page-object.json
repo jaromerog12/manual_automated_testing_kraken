@@ -1,0 +1,30 @@
+{
+  "sign_in": {
+    "username": "ja.romerog12@uniandes.edu.co",
+    "password": "Febrero$2023"
+  },
+  "port": 2368,
+  "urls": {
+    "account": "http://localhost:####/ghost/#/setup/two",
+    "login": "http://localhost:####/ghost/#/signin"
+  },
+  "email_domain": ["@gmail.com", "@hotmail.com", "@outlook.com"],
+  "account": {
+    "input_title": "#blog-title",
+    "input_full_name": "#name",
+    "input_email": "#email",
+    "input_password": "#password",
+    "button_send": "button[type=submit]"
+  },
+  "login": {
+    "input_username": "input[name='identification']",
+    "input_password": "input[name='password']",
+    "button_sign_in": "button[type='submit']",
+    "class_error_button_sign_in": "gh-btn-red",
+    "form_login_error_div_class": "#login.gh-signin > div:nth-child(1)",
+    "class_error_div_username": "error"
+  },
+  "tags": {
+
+  }
+}

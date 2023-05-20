@@ -23,3 +23,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+let page_object = require('../fixtures/page-object.json');
+const functions = require("../scripts/functions");
+Cypress.Commands.add('login', () => {
+    cy.visit(functions.buildUrl(page_object.port, page_object.urls.login));
+    cy.get(page_object.login.input_username).type(page_object.sign_in.username);
+    cy.get(page_object.login.input_password).type(page_object.sign_in.password);
+    cy.get(page_object.login.button_sign_in).click();
+});

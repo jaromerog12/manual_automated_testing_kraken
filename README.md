@@ -5,6 +5,12 @@
 * Leonardo Bustamante
 * Kevin Maldonado
 
+# Entrega semana 7
+
+### Incidencias
+* [incidencia 1](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Incidencia-1)
+* [incidencia 2](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Incidencia-2)
+
 # Entrega semana 6
 
 Impacto de la ejecución de los escenarios de pruebas de ***kraken*** en la nueva versión de ghost 4.44.0 y ***pupeteer*** para la versión 3.41.1 debido a que la entrega pasada se presentó con una versión superior a la 4.44.0
