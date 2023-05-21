@@ -6,8 +6,9 @@
   "port": 2368,
   "urls": {
     "login": "http://localhost:####/ghost/#/signin",
-    "new_tag": "http://localhost:2368/ghost/#/tags/new",
-    "tags": "http://localhost:2368/ghost/#/tags"
+    "new_tag": "http://localhost:####/ghost/#/tags/new",
+    "tags": "http://localhost:####/ghost/#/tags",
+    "general": "http://localhost:####/ghost/#/settings/general"
   },
   "email_domain": ["@gmail.com", "@hotmail.com", "@outlook.com"],
   "account": {
@@ -58,10 +59,28 @@
       "metadata": 1,
       "twitter": 2,
       "facebook": 3
-    },
-    "position_textarea_description": {
-      "metadata": 2
-
     }
+  },
+  "general": {
+      "button_expand": "div.flex.flex-column.br3.shadow-1.bg-grouped-table:nth-child(####) > div:nth-child(###) > div > div:nth-child(2) > button",
+      "button_expand_social_accounts": "div.gh-setting-first.gh-setting-last > div.gh-setting-action > button",
+      "panel_expand": {
+        "site_meta_settings": 6
+      },
+      "site_meta_settings": {
+        "metadata": 1
+      },
+    "meta_title": "#metaTitle",
+    "input_description_metadata": "#metaDescription",
+    "button_save": "button.gh-btn.gh-btn-blue.gh-btn-icon.ember-view",
+    "div_validate_title_metadata": "div.seo-preview-title",
+    "div_validate_description_metadata": "div.seo-preview-description",
+    "span_word_count_metadata_title": "div.flex.flex-column.br3.shadow-1.bg-grouped-table:nth-child(6) > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(1) > div > div > div > p > b > span",
+    "span_word_count_metadata_description": "div.flex.flex-column.br3.shadow-1.bg-grouped-table:nth-child(6) > div:nth-child(1) >  div:nth-child(2) > div  > div:nth-child(1) > div> div > div:nth-child(2) > p > b > span",
+    "social_media": {
+      "input_facebook": "div.gh-setting-content-extended > div.form-group.ember-view:nth-child(1) > input",
+      "input_twitter": "div.gh-setting-content-extended > div.form-group.ember-view:nth-child(2) > input"
+    },
+    "span_error_response": "p.response"
   }
 }
