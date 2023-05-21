@@ -1,17 +1,22 @@
-import axios from 'axios';
 const fs = require('fs');
+const {get} = require("axios");
 
-axios.get('https://api.example.com/data')
-  .then(response => {
-    // Guardar la respuesta en un archivo JSON
-    fs.writeFile('respuesta.json', JSON.stringify(response.data), err => {
-      if (err) {
-        console.error('Error al guardar el archivo:', err);
-      } else {
-        console.log('Respuesta guardada correctamente en respuesta.json');
-      }
+const generate_data_apiori = (api_name, key, file_name) => {
+    get(`https://my.api.mockaroo.com/${api_name}?key=${key}`)
+    .then(response => {
+        let path_file_account = __dirname.replace("scripts", `fixtures/data-pool-apriori/${file_name}`);
+        // Guardar la respuesta en un archivo JSON
+        fs.writeFile(path_file_account, JSON.stringify(response.data), err => {
+            if (err) {
+                console.error('Error al guardar el archivo:', err);
+            } else {
+                console.log('Respuesta guardada correctamente en ' + file_name);
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Error al hacer la petición:', error);
     });
-  })
-  .catch(error => {
-    console.error('Error al hacer la petición:', error);
-  });
+}
+
+generate_data_apiori('post.json','5dc68f00','data_apriori_post.json');
