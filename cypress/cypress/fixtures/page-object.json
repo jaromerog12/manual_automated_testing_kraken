@@ -35,14 +35,33 @@
     "span_color_count":"span.word-count:nth-child(####)",
     "meta_title": "#meta-title",
     "div_validate_title_metadata": "div.seo-preview-title",
+    "div_validate_description_metadata": "div.seo-preview-description",
     "span_word_count_metadata_title": "div.flex.flex-column.br3.shadow-1.bg-grouped-table.mt2 > section > div:nth-child(2) > div > div div:nth-child(1) > div:nth-child(1) > p:nth-child(4) > span",
+    "span_word_count_metadata_description": "div.flex.flex-column.br3.shadow-1.bg-grouped-table.mt2 > section > div:nth-child(2) > div > div div:nth-child(1) > div:nth-child(2) > p:nth-child(4) > span",
     "button_expand": "section.bb.b--whitegrey.pa5:nth-child(####) div > div:nth-child(2) > button",
     "input_description_metadata": "#meta-description",
+    "input_canonical_url": "#canonical-url",
+    "p_validate_canonical_url": "p.response",
+    "input_twitter_title": "#twitter-title",
+    "input_twitter_description": "#twitter-description",
+    "span_word_count_twitter_title": "div.flex.flex-column.br3.shadow-1.bg-grouped-table.mt2 > section:nth-child(2) > div:nth-child(2) > div > div > div> div:nth-child(2) > p:nth-child(4) > span",
+    "span_word_count_twitter_description": "div.flex.flex-column.br3.shadow-1.bg-grouped-table.mt2 > section:nth-child(2) > div:nth-child(2) > div > div > div > div:nth-child(3) > p:nth-child(4) > span",
+    "div_validate_twitter_title": "div.gh-twitter-preview-content > div.gh-twitter-preview-title",
+    "div_validate_twitter_description": "div.gh-twitter-preview-content > div.gh-twitter-preview-description",
+    "input_facebook_title": "#og-title",
+    "input_facebook_description": "#og-description",
+    "span_word_count_facebook_title": "div.flex.flex-column.br3.shadow-1.bg-grouped-table.mt2 > section:nth-child(3) > div:nth-child(2) > div > div > div> div:nth-child(2) > p:nth-child(4) > span",
+    "span_word_count_facebook_description": "div.flex.flex-column.br3.shadow-1.bg-grouped-table.mt2 > section:nth-child(3) > div:nth-child(2) > div > div > div > div:nth-child(3) > p:nth-child(4) > span",
+    "div_validate_facebook_title": "div.gh-og-preview-content > div.gh-og-preview-title",
+    "div_validate_facebook_description": "div.gh-og-preview-content > div.gh-og-preview-description",
     "position_button_expand": {
-      "metadata": 1
+      "metadata": 1,
+      "twitter": 2,
+      "facebook": 3
     },
     "position_textarea_description": {
       "metadata": 2
+
     }
   }
 }

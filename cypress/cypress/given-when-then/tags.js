@@ -1,5 +1,5 @@
 import {faker} from "@faker-js/faker";
-import login_a_priori from "../fixtures/data-pool-apriori/login.json";
+import tags_a_priori from "../fixtures/data-pool-apriori/tags.json";
 import {create} from "axios";
 
 const functions = require("../scripts/functions");
@@ -39,16 +39,32 @@ const then_validate_error_word_count_color = (type, span_word_count) => {
         cy.get(span_word_count).should('have.css', 'color')
             .and("eq", 'rgb(226, 84, 64)');
     }
-
 }
 
-const then_validate_title_updated = () => {
-    cy.get(page_object.tags.div_validate_title_metadata).should('contain', titleTag);
+const when_fill_canonical_correct_url = () => {
+    let index = functions.getRandomInt(0, tags_a_priori.length);
+    cy.get(page_object.tags.input_canonical_url).type(tags_a_priori[index].canonical_url);
+}
+
+const when_fill_canonical_incorrect_url = () => {
+    cy.get(page_object.tags.input_canonical_url).type(faker.random.word());
+}
+
+const then_validate_title_updated = (title) => {
+    //cy.get(page_object.tags.div_validate_title_metadata).should('contain', titleTag);
+    cy.get(title).should('contain', titleTag);
 }
 const when_expand_section = (index) => {
     cy.get(page_object.tags.button_expand.replace('####', index)).click();
 }
 
+const then_validate_success_url = () => {
+    cy.get(page_object.tags.p_validate_canonical_url).should('not.contain', 'The url should be a valid url');
+}
+
+const then_validate_fail_url = () => {
+    cy.get(page_object.tags.p_validate_canonical_url).should('contain', 'The url should be a valid url');
+}
 
 export {
     given_visit_url,
@@ -58,5 +74,9 @@ export {
     then_validate_tag_exist_in_list,
     then_validate_error_word_count_color,
     when_expand_section,
-    then_validate_title_updated
+    then_validate_title_updated,
+    when_fill_canonical_correct_url,
+    then_validate_success_url,
+    when_fill_canonical_incorrect_url,
+    then_validate_fail_url
 }

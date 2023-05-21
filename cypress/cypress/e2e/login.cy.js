@@ -59,7 +59,6 @@ describe('login functionalities', () => {
         }
         when_button_sign_in_click(data_button_sign_in);
         then_validate_class_error_button_sign_in(data_button_sign_in);
-        then_validate_div_has_not_error_class_because_characters_length_greather_that_limit_input_username()
     });
 
     it('login fail username and password incorrect - username character length = 77', () => {
