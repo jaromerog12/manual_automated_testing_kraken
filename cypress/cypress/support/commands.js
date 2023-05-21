@@ -30,4 +30,5 @@ Cypress.Commands.add('login', () => {
     cy.get(page_object.login.input_username).type(page_object.sign_in.username);
     cy.get(page_object.login.input_password).type(page_object.sign_in.password);
     cy.get(page_object.login.button_sign_in).click();
+    cy.wait(1000);
 });

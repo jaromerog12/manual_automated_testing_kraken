@@ -1,13 +1,13 @@
-const {faker} = require('@faker-js/faker');
 let page_object = require('../fixtures/page-object.json');
 const { given_visit_url,
     when_fill_input_email,
     when_fill_input_password,
     when_button_sign_in_click,
     then_validate_class_error_button_sign_in,
-    then_validate_error_class_input_because_characters_length_greather_that_limit_input} = require("../given-when-then/login");
+    then_validate_div_has_error_class_because_characters_length_greather_that_limit_input_username,
+    then_validate_div_has_not_error_class_because_characters_length_greather_that_limit_input_username} = require("../given-when-then/login");
 describe('login functionalities', () => {
-    it('login fail username and password incorrect - username character length = 77', () => {
+    it('login fail username and password incorrect - username character length = 75', () => {
         let data_visit_page = {
             port: page_object.port,
             url: page_object.urls.login
@@ -31,10 +31,11 @@ describe('login functionalities', () => {
         }
         when_button_sign_in_click(data_button_sign_in);
        then_validate_class_error_button_sign_in(data_button_sign_in);
+        then_validate_div_has_not_error_class_because_characters_length_greather_that_limit_input_username();
     });
 
 
-    it('login fail username and password incorrect - username character length = 78', () => {
+    it('login fail username and password incorrect - username character length = 76', () => {
         //Given
         let data_visit_page = {
             port: page_object.port,
@@ -58,9 +59,10 @@ describe('login functionalities', () => {
         }
         when_button_sign_in_click(data_button_sign_in);
         then_validate_class_error_button_sign_in(data_button_sign_in);
+        then_validate_div_has_not_error_class_because_characters_length_greather_that_limit_input_username()
     });
 
-    it('login fail username and password incorrect - username character length = 79', () => {
+    it('login fail username and password incorrect - username character length = 77', () => {
         let data_visit_page = {
             port: page_object.port,
             url: page_object.urls.login
@@ -83,6 +85,6 @@ describe('login functionalities', () => {
         }
         when_button_sign_in_click(data_button_sign_in);
         then_validate_class_error_button_sign_in(data_button_sign_in);
-        then_validate_error_class_input_because_characters_length_greather_that_limit_input(data_button_sign_in)
+        then_validate_div_has_error_class_because_characters_length_greather_that_limit_input_username()
     });
 });
