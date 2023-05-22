@@ -19,7 +19,7 @@ Con este instructivo podras replicar en tu equipo la ejecución de las pruebas e
 * [Ejecutar escenarios](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Ejecutar-escenarios)
 
 ### Incidencias
-* [incidencia]([https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Incidencia-1](https://github.com/jaromerog12/manual_automated_testing_kraken/issues))
+* [incidencia](https://github.com/jaromerog12/manual_automated_testing_kraken/issues)
 
 ### Reporte
 
