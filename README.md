@@ -10,6 +10,10 @@
 <pre> Para la presente semana se trabajó con 3 integrantes, debido a que el compañero 
 Camilo Zuleta manifestó que se retiraba del proceso </pre>
 
+### Version a probar 
+
+Ghost 3.41.1 puerto 2368
+
 ### Escenarios de test implementando generación de datos a priori, pseudoaleatorios y dinámicos.
 
 Aca encontraras el listado de los casos implementados junto con el patron de cgenración de datos usado
