@@ -40,7 +40,9 @@ describe('create page draft', () => {
     });
 
 
- }), 
+ }),
+
+
  it('create page faker without content', () => {
     //given
     visit_url(page_object_json.url.editor_page);

@@ -6,6 +6,8 @@
 * Kevin Maldonado
 
 # Entrega semana 7
+### Ejecutar escenarios
+* [Ejecutar escenarios](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Ejecutar-escenarios)
 
 ### Incidencias
 * [incidencia 1](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Incidencia-1)

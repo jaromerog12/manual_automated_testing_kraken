@@ -21,6 +21,6 @@ const generate_data_apiori = (api_name, key, file_name) => {
 }
 
 generate_data_apiori('post.json','5dc68f00','data_apriori_post.json');
-generate_data_apiori('login.json','294f03c0','data_apriori_post.json');
-generate_data_apiori('tags.json','294f03c0','data_apriori_post.json');
+generate_data_apiori('login.json','294f03c0','data_apriori_login.json');
+generate_data_apiori('tags.json','294f03c0','data_apriori_tags.json');
 generate_data_apiori('pages.json','5dc68f00','data_apriori_page.json');

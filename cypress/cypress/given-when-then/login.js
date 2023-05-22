@@ -1,5 +1,5 @@
 import {faker} from "@faker-js/faker";
-import login_a_priori from "../fixtures/data-pool-apriori/login.json";
+import login_a_priori from "../fixtures/data-pool-apriori/data_apriori_login.json";
 
 const functions = require("../scripts/functions");
 const page_object = require("../fixtures/page-object.json");

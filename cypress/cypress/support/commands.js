@@ -29,6 +29,7 @@ let page_object = require('../fixtures/page-object.json');
 const functions = require("../scripts/functions");
 
 Cypress.Commands.add('login', () => {
+    console.log(page_object);
     cy.visit(functions.buildUrl(page_object.port, page_object.urls.login));
     cy.get(page_object.login.input_username).type(page_object.sign_in.username);
     cy.get(page_object.login.input_password).type(page_object.sign_in.password);

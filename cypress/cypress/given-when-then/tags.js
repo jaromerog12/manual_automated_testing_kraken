@@ -1,6 +1,5 @@
 import {faker} from "@faker-js/faker";
-import tags_a_priori from "../fixtures/data-pool-apriori/tags.json";
-import {create} from "axios";
+import tags_a_priori from "../fixtures/data-pool-apriori/data_apriori_tags.json";
 
 const functions = require("../scripts/functions");
 const page_object = require("../fixtures/page-object.json");
