@@ -7,7 +7,8 @@
 
 # Entrega semana 7
 
-<pre> Para la presente semana se trabajó con 3 integrantes, debido a que el compañero ***Camilo Zuleta*** manifestó que se retiraba del proceso </pre>
+<pre> Para la presente semana se trabajó con 3 integrantes, debido a que el compañero 
+Camilo Zuleta manifestó que se retiraba del proceso </pre>
 
 ### Escenarios de test implementando generación de datos a priori, pseudoaleatorios y dinámicos.
 * [Listado de escenarios](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Escenarios)
