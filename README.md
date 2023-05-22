@@ -6,7 +6,9 @@
 * Kevin Maldonado
 
 # Entrega semana 7
-### Ejecutar escenarios
+
+### 120 Escenarios implementando generación de datos a priori, pseudoaleatorios, dinámicos.
+* [Listado de escenarios](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Escenarios)
 * [Ejecutar escenarios](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Ejecutar-escenarios)
 
 ### Incidencias
