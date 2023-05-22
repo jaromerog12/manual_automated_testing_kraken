@@ -11,12 +11,21 @@
 Camilo Zuleta manifestó que se retiraba del proceso </pre>
 
 ### Escenarios de test implementando generación de datos a priori, pseudoaleatorios y dinámicos.
+
+Aca encontraras el listado de los casos implementados junto con el patron de cgenración de datos usado
 * [Listado de escenarios](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Escenarios)
+
+Con este instructivo podras replicar en tu equipo la ejecución de las pruebas e2e con cypress
 * [Ejecutar escenarios](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Ejecutar-escenarios)
 
 ### Incidencias
-* [incidencia 1](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Incidencia-1)
-* [incidencia 2](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Incidencia-2)
+* [incidencia]([https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Incidencia-1](https://github.com/jaromerog12/manual_automated_testing_kraken/issues))
+
+### Reporte
+
+Para ver el reporte sobre esta semana, debe navegar a la [wiki](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki) del repositorio y en la sección de la semana 7 encontrara toda la información necesaria
+
+![image](https://github.com/jaromerog12/manual_automated_testing_kraken/assets/123959005/3fec631b-17c6-49b2-9b00-736a8ecbe2a0)
 
 # Entrega semana 6
 
