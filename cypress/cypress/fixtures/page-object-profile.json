@@ -1,0 +1,20 @@
+{
+    "url": {
+        "dashboard": "http://localhost:2368/ghost/#/dashboard"
+    },
+    "selectores":{ 
+        "profile-icon":"[class='flex-auto flex items-center']",
+        "you-profile":"#ember-basic-dropdown-wormhole > div > ul > li:nth-child(4) > a",
+        "user-name-input":"#user-name",
+        "save-button":"[class='gh-btn gh-btn-blue gh-btn-icon ember-view']",
+        "email-input":"#user-email",
+        "error-selector":"body > div.gh-app > div > main > section > section > div > form:nth-child(1) > div > fieldset > div.first-form-group.form-group.error.ember-view > p",
+        "error-selector-email": "body > div.gh-app > div > main > section > section > div > form:nth-child(1) > div > fieldset > div.form-group.error.ember-view > p.response",
+        "location-input":"#user-location",
+        "error-input-location":"body > div.gh-app > div > main > section > section > div > form:nth-child(1) > div > fieldset > div.form-group.error.ember-view > p.response",
+        "user-website-input":"#user-website",
+        "error-user-web-site":"body > div.gh-app > div > main > section > section > div > form:nth-child(1) > div > fieldset > div.form-group.error.ember-view > p.response",
+        "bio-input":"#user-bio",
+        "error-bio":"body > div.gh-app > div > main > section > section > div > form:nth-child(1) > div > fieldset > div.bio-container.form-group.error.ember-view > p.response"
+    }
+}

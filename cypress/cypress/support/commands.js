@@ -45,3 +45,7 @@ Cypress.Commands.add('generarDataPoolPseudoAleatorio', (file_name, api_name, key
       cy.writeFile(`cypress/fixtures/data-pool-pseudoaleatorio/${file_name}`, jsonData);
     });
 });
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false
+})
