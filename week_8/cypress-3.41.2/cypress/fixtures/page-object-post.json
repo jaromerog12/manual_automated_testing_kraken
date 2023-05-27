@@ -1,0 +1,31 @@
+{
+    "url": {
+        "editor_post": "http://localhost:3002/ghost/#/editor/post",
+        "post": "http://localhost:3002/ghost/#/posts"
+    },
+    "classes": {
+        "title_class": ".gh-editor-title",
+        "content_class": ".koenig-editor__editor",
+        "content_list": ".content-list",
+        "publish_menu": ".gh-publishmenu",
+        "publish_button": ".gh-publishmenu-button",
+        "post_settings": ".post-settings",
+        "post_settings_slug": ".post-setting-slug",
+        "post_setting_custom_excerpt": ".post-setting-custom-excerpt",
+        "button_close": ".close",
+        "button_back": ".back",
+        "modal_content": ".modal-content",
+        "nav_list": ".nav-list",
+        "post_setting_meta_title": ".post-setting-meta-title",
+        "post_setting_meta_description": ".post-setting-meta-description",
+        "post_setting_canonicalUrl": ".post-setting-canonicalUrl",
+        "post_setting_twitter_title": ".post-setting-twitter-title",
+        "post_setting_twitter_description": ".post-setting-twitter-description",
+        "post_setting_og_title": ".post-setting-og-title",
+        "post_setting_og_description": ".post-setting-og-description",
+        "codeMirror-scroll" : ".CodeMirror-scroll" 
+    },
+    "section": {
+        "published": "Published"
+    }
+}

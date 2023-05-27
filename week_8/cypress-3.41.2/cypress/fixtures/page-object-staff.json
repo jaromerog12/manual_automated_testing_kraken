@@ -1,0 +1,18 @@
+{
+    "url": {
+        "staff": "http://localhost:3002/ghost/#/staff"
+    },
+    "classes": {
+        "owner": ".owner"
+    },
+    "id": {
+        "user_name": "#user-name",
+        "user_slug": "#user-slug",
+        "user_email": "#user-email",
+        "user_location": "#user-location",
+        "user_website": "#user-website",
+        "user_facebook": "#user-facebook",
+        "user_twitter": "#user-twitter",
+        "user_bio": "#user-bio"
+    }
+}
