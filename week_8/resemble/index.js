@@ -59,22 +59,10 @@ function getJsonInfo(mainPath) {
 
     const directories = fs.readdirSync(mainPath);
 
-    const directoriesChild = directories.filter(file => {
-        const filePath = path.join(mainPath, file);
-        return fs.statSync(filePath).isDirectory();
-    }).map((directory) => {
+
+
+    const files = directories.map((directory) => {
         return `${mainPath}/${directory}`;
-    });
-
-    const files = directoriesChild.map(directoryChild => {
-        const filesDirectories = fs.readdirSync(directoryChild);
-
-        return filesDirectories.map(file => {
-            return directoryChild.concat(`/${file}`);
-        }).filter(directoryField => {
-            return directoryField.includes('.json')
-        }
-        );
     });
 
     const json = files.map(filePath => {

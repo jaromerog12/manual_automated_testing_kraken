@@ -237,7 +237,7 @@ describe('edit staff draft', () => {
       cy.wait(2000)
     });
   }),
-  it('edit Bio owner webside oversized', () => {
+  it('edit Bio owner oversized', () => {
     //Given
     visit_url(page_object_json.url.staff);
 

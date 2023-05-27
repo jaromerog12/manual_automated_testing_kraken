@@ -17,8 +17,8 @@ async function executeTest() {
         fs.mkdirSync(`./results/${datetime}`, { recursive: true });
     }
 
-    const jsonBefore = getJsonInfo('./jsonfiles/ghost_3_41_1');
-    const jsonAfter = getJsonInfo('./jsonfiles/ghost_4_44_0');
+    const jsonBefore = getJsonInfo('./input_resemble/ghost_3_41_1');
+    const jsonAfter = getJsonInfo('./input_resemble/ghost_4_44_0');
 
     casesArray = await getCasesArray(jsonBefore);
     console.log('casesArray',casesArray.length);
