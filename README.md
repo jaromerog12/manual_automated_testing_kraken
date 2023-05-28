@@ -21,6 +21,10 @@ Escenarios a los que se les aplicaría VRT:
 ### 4. Incidencias
 * [incidencias](https://github.com/jaromerog12/manual_automated_testing_kraken/issues)
 
+### 5. Para ver la documentación de la entrega, porfavor acceda a la wiki del proyecto en la sección entrega semana 8 podra encontrar la documentación, el video y la retrospectiva DAKI
+
+![image](https://github.com/jaromerog12/manual_automated_testing_kraken/assets/123959005/0ff87e60-8248-4119-8878-3f6eca10b2b8)
+
 # Entrega semana 7
 
 <pre> Para la presente semana se trabajó con 3 integrantes, debido a que el compañero 
