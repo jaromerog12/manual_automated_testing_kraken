@@ -8,7 +8,7 @@ let index = 0;
 const nameDirectory = process.argv[2];
 
 
-const extract_data = () => {
+const generate_input_resemble = () => {
     const pathReports = __dirname + '/reports/';
     //const nameDirectory = process.argv[2];
     const pathInputResemble = __dirname + '/input_resemble/' + nameDirectory;
@@ -19,7 +19,7 @@ const extract_data = () => {
         const stat = fs.statSync(filePath);
 
         if (stat.isDirectory()) {
-            extract_data(filePath); // Recursively call the function for subdirectories
+            generate_input_resemble(filePath); // Recursively call the function for subdirectories
         } else {
             let nameFile = getFileName(filePath);
             if(getFileType(filePath) === 'application/json' && nameFile === 'report') {
@@ -127,6 +127,6 @@ const moveJson =  (pathReports, pattern) => {
 
 moveJson(pathReports, pattern);
 
- //extract_data().then(r => console.log(r));
+ //generate_input_resemble().then(r => console.log(r));
 
 
