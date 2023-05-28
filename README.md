@@ -1,7 +1,7 @@
 # Bienvenidos al repositorio de la materia pruebas automatizadas del grupo numero 24 el cual esta compuesto por
 
 * Jorge A. Romero Gutierrez
-* Camilo Zuleta
+* Camilo Zuleta (Manifestó retiro de la maestría)
 * Leonardo Bustamante
 * Kevin Maldonado
 
