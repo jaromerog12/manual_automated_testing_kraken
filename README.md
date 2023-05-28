@@ -9,13 +9,13 @@
 
 Escenarios a los que se les aplicaría VRT:
 
-### 1. Funcionalidades a las que se les aplicará VRT en la iteración 1
+### 1. Funcionalidades a las que se les aplicará VRT
 * [Funcionalidades y escenarios](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/VRT-iteraci%C3%B3n-1)
 
-### 2. Escenarios para ejecutar pruebas E2E
+### 2. Escenarios obtenidos de una exploración manual y que posteriormente fueron automatizados implementando pruebas E2E
 * [Funcionalidades y escenarios](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Escenarios)
 
-### 3. Ejecutar pruebas manuales automatizadas, e2e y VRT
+### 3. Ejecutar pruebas manuales automatizadas, E2E y VRT
 * [Manual](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Ejecutar-pruebas-iteraci%C3%B3n-1)
 
 ### 4. Incidencias
