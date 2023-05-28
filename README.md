@@ -5,6 +5,22 @@
 * Leonardo Bustamante
 * Kevin Maldonado
 
+# Entrega semana 8
+
+Escenarios a los que se les aplicaría VRT:
+
+### 1. Funcionalidades a las que se les aplicará VRT en la iteración 1
+* [Funcionalidades y escenarios](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/VRT-iteraci%C3%B3n-1)
+
+### 2. Escenarios para ejecutar pruebas E2E
+* [Funcionalidades y escenarios](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Escenarios)
+
+### 3. Ejecutar pruebas manuales automatizadas, e2e y VRT
+* [Manual](https://github.com/jaromerog12/manual_automated_testing_kraken/wiki/Ejecutar-pruebas-iteraci%C3%B3n-1)
+
+### 4. Incidencias
+* [incidencias](https://github.com/jaromerog12/manual_automated_testing_kraken/issues)
+
 # Entrega semana 7
 
 <pre> Para la presente semana se trabajó con 3 integrantes, debido a que el compañero 
